@@ -1,15 +1,15 @@
 # projeto-netflix
 
-#OBJETIVO
+# OBJETIVO
 
-	Criar um sistema em que os usuários cadastrados possam buscar informações referente a 	filmes, séries, animes e outros. 
+	Criar um sistema em que os usuários cadastrados possam buscar informações referente a filmes, séries, animes e outros. 
 
-#RESULTADO ESPERADO
+# RESULTADO ESPERADO
 
 	Usuário poderá pesquisar as informações por gênero, diretor, ator.
-	Visualizar informações dos títulos mais curtidos
+	Visualizar informações dos títulos mais curtidos.
 	Visualizar sinopses e elenco dos títulos.
 
-#COMO FUNCIONA?
+# COMO FUNCIONA?
 
-	A aplicação funciona trazendo as informações requeridas pelo usuário direto do banco de 	dados Oracle.
+	A aplicação funciona trazendo as informações requeridas pelo usuário direto do banco de dados Oracle.
