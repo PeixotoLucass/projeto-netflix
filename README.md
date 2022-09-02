@@ -13,3 +13,12 @@
 # COMO FUNCIONA?
 
 	A aplicação funciona trazendo as informações requeridas pelo usuário direto do banco de dados Oracle.
+
+# FERRAMENTAS UTILIZADAS
+	
+	1- IntelliJ.
+	2- Java versão 11.
+	3- Spring Boot DevTools e Spring Web.
+	4- Banco de dados Oracle com Docker.
+	5- Administrador do banco dbeaver.
+	6- Postman.
