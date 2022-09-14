@@ -1,5 +1,9 @@
 spring:
   datasource:
-    url: jdbc:oracle:thin:@//localhost:1521/bancooracle
-    username: testebd
-    password: senha
+    url: jdbc:oracle:thin:@//localhost:1521/netflix
+    username: teste
+    password: teste
+
+  sql:
+    init:
+      mode=always:
