@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:oracle:thin:@//localhost:1521/bancooracle
-    username: testebd
-    password: senha
+    url: ${DB_ADDRESS}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}

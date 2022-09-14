@@ -1,0 +1,75 @@
+CREATE TABLE IDT_USER_TYPE (
+                                USER_ID INTEGER PRIMARY KEY NOT NULL, USER_TYPE varchar(30)
+);
+
+CREATE TABLE IDT_PERSON (
+                            PERSON_ID INTEGER PRIMARY KEY NOT NULL,
+                            PERSON_NAME VARCHAR(50),
+                            LOGIN VARCHAR(50),
+                            PASSWORD VARCHAR(50), USER_ID INTEGER,
+                            CONSTRAINT USER_PERSON_FK FOREIGN KEY(USER_ID) REFERENCES IDT_USER_TYPE(USER_ID)
+);
+
+CREATE TABLE IDT_ACTOR (
+                            ACTOR_ID INTEGER PRIMARY KEY NOT NULL,
+                            NAME_ACTOR VARCHAR(50),
+                            AGE_ACTOR INTEGER
+);
+
+CREATE TABLE IDT_NAME_CAST (
+                                NAME_CAST_ID INTEGER PRIMARY KEY NOT NULL,
+                                ACTOR_ID INTEGER,
+                                CONSTRAINT NAME_CAST_ACTOR_FK FOREIGN KEY(ACTOR_ID) REFERENCES IDT_ACTOR(ACTOR_ID),
+                                TITLE_ID INTEGER
+);
+
+CREATE TABLE IDT_DIRECTOR (
+                               DIRECTOR_ID INTEGER PRIMARY KEY NOT NULL,
+                               DIRECTOR_NAME VARCHAR(50), AGE INTEGER
+);
+
+CREATE TABLE IDT_DIRECTION (
+                                DIRECTION_ID INTEGER PRIMARY KEY NOT NULL,
+                                DIRECTOR_ID INTEGER,
+                                CONSTRAINT DIRECTION_DIRECTOR_FK FOREIGN KEY(DIRECTOR_ID) REFERENCES IDT_DIRECTOR(DIRECTOR_ID)
+);
+
+CREATE TABLE IDT_GENRE (
+                            GENRE_ID INTEGER PRIMARY KEY NOT NULL,
+                            NAME VARCHAR(30)
+);
+
+CREATE TABLE IDT_TITLE_TYPE (
+                                TITLE_TYPE_ID INTEGER PRIMARY KEY NOT NULL, TYPE_NAME VARCHAR(30)
+);
+
+CREATE TABLE IDT_TITLE (
+                            TITLE_ID INTEGER PRIMARY KEY NOT NULL, CLASSIFICATION VARCHAR(30), LAUNCH DATE,
+                            TITLE_NAME VARCHAR(50),
+                            DURATION VARCHAR(30),
+                            DIRECTION_ID INTEGER,
+                            CONSTRAINT DIRECTION_TITLE_ID FOREIGN KEY(DIRECTION_ID) REFERENCES IDT_DIRECTION(DIRECTION_ID),
+                            NAME_CAST_ID INTEGER,
+                            CONSTRAINT NAME_CAST_TITLE_FK FOREIGN KEY(NAME_CAST_ID) REFERENCES IDT_NAME_CAST(NAME_CAST_ID),
+                            GENRE_ID INTEGER,
+                            CONSTRAINT GENRE_TITLE_FK FOREIGN KEY(GENRE_ID) REFERENCES IDT_GENRE(GENRE_ID),
+                            TITLE_TYPE_ID INTEGER,
+                            CONSTRAINT TITLE_TYPE_TITLE_FK FOREIGN KEY(TITLE_TYPE_ID) REFERENCES IDT_TITLE_TYPE(TITLE_TYPE_ID)
+ );
+
+CREATE TABLE IDT_HISTORY (
+                            HISTORY_ID INTEGER PRIMARY KEY NOT NULL,
+                            HISTORY_DATE DATE,
+                            PERSON_ID INTEGER,
+                            CONSTRAINT HISTORY_PERSON_FK FOREIGN KEY(PERSON_ID) REFERENCES IDT_PERSON(PERSON_ID),
+                            TITLE_ID INTEGER,
+                            CONSTRAINT HISTORY_TITLE_FK FOREIGN KEY(TITLE_ID) REFERENCES IDT_TITLE(TITLE_ID)
+);
+
+ALTER TABLE IDT_NAME_CAST ADD CONSTRAINT NAME_CAST_TITLE
+            FOREIGN KEY(TITLE_ID) REFERENCES IDT_TITLE(TITLE_ID)
+;
+
+
+
+
