@@ -22,6 +22,7 @@ public class TitleType {
         this.namType = namType;
     }
 
+
     public Long getId() {
         return id;
     }

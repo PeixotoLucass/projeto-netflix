@@ -20,6 +20,7 @@ public class Actor {
     public Actor() {
     }
 
+
     public Actor(Long id, String namActor, int numAge) {
         this.id = id;
         NamActor = namActor;

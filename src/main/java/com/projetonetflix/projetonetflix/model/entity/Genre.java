@@ -38,3 +38,4 @@ public class Genre {
         this.namGenre = namGenre;
     }
 }
+

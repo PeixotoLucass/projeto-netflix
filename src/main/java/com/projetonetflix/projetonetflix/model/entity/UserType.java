@@ -40,3 +40,4 @@ public class UserType {
         this.userType = userType;
     }
 }
+
