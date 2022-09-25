@@ -1,7 +1,5 @@
 package com.projetonetflix.projetonetflix.model.entity;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.persistence.*;
 
 @Entity

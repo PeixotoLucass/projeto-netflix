@@ -30,7 +30,6 @@ public class Director {
         return id;
     }
 
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -50,4 +49,5 @@ public class Director {
     public void setNumAgeDirector(int numAgeDirector) {
         this.numAgeDirector = numAgeDirector;
     }
+
 }
