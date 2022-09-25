@@ -41,6 +41,7 @@ public class Title {
         this.idtTitleType = idtTitleType;
     }
 
+
     public Long getId() {
         return id;
     }

@@ -61,5 +61,4 @@ public class Person {
     public void setCodPassword(String codPassword) {
         this.codPassword = codPassword;
     }
-
 }

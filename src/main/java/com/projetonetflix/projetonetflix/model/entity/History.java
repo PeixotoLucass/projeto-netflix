@@ -63,3 +63,4 @@ public class History {
         this.idtTitle = idtTitle;
     }
 }
+
