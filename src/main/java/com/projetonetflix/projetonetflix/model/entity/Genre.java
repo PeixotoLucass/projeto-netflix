@@ -23,9 +23,7 @@ public class Genre {
     @Column(name = "NAM_GENRE")
     private String name;
 
-    @ManyToMany
-    @JoinTable(name = "TITLE_GENRE", joinColumns = @JoinColumn(name = "IDT_TITLE"),
-            inverseJoinColumns = @JoinColumn(name = "IDT_GENRE"))
+    @ManyToMany(mappedBy = "genres")
     private List<Title> titles;
 
     public Genre() {

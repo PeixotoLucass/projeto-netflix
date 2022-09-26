@@ -3,12 +3,17 @@ package com.projetonetflix.projetonetflix.model.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.ManyToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.GenerationType;
 import javax.persistence.GenerationType;
 import java.util.List;
 
 @Entity
+@Table(name = "TITLE")
 public class Title {
 
     @Id
@@ -34,7 +39,9 @@ public class Title {
     @Column(name = "IDT_TITLE_TYPE")
     private Long idtTitleType;
 
-    @ManyToMany(mappedBy = "titles")
+    @ManyToMany
+    @JoinTable(name = "CAST_ACTOR", joinColumns = @JoinColumn(name = "IDT_GENRE"),
+            inverseJoinColumns = @JoinColumn(name = "IDT_TITLE"))
     private List<Genre> genres;
 
     @ManyToMany(mappedBy = "titlesList")
