@@ -18,7 +18,7 @@ public class Actor {
     private Long id;
 
     @Column(name = "NAM_ACTOR")
-    private String namActor;
+    private String nameActor;
 
     @Column(name = "NUM_AGE_ACTOR")
     private int numAge;
@@ -28,7 +28,7 @@ public class Actor {
 
     public Actor(Long id, String namActor, int numAge) {
         this.id = id;
-        this.namActor = namActor;
+        this.nameActor = namActor;
         this.numAge = numAge;
     }
 
@@ -40,12 +40,12 @@ public class Actor {
         this.id = id;
     }
 
-    public String getNamActor() {
-        return namActor;
+    public String getNameActor() {
+        return nameActor;
     }
 
-    public void setNamActor(String namActor) {
-        this.namActor = namActor;
+    public void setNameActor(String nameActor) {
+        this.nameActor = nameActor;
     }
 
     public int getNumAge() {
