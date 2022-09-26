@@ -17,22 +17,22 @@ public class Person {
     private Long id;
 
     @Column(name = "NAM_PERSON")
-    private String namePerson;
+    private String name;
 
     @Column(name = "NAM_LOGIN")
-    private String nameLogin;
+    private String login;
 
     @Column(name = "COD_PASSWORD")
-    private String codPassword;
+    private String password;
 
     public Person() {
     }
 
-    public Person(Long id, String namPerson, String namLogin, String codPassword) {
+    public Person(Long id, String name, String login, String password) {
         this.id = id;
-        this.namePerson = namPerson;
-        this.nameLogin = namLogin;
-        this.codPassword = codPassword;
+        this.name = name;
+        this.login = login;
+        this.password = password;
     }
 
     public Long getId() {
@@ -43,28 +43,28 @@ public class Person {
         this.id = id;
     }
 
-    public String getNamePerson() {
-        return namePerson;
+    public String getName() {
+        return name;
     }
 
-    public void setNamePerson(String namePerson) {
-        this.namePerson = namePerson;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNameLogin() {
-        return nameLogin;
+    public String getLogin() {
+        return login;
     }
 
-    public void setNameLogin(String nameLogin) {
-        this.nameLogin = nameLogin;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getCodPassword() {
-        return codPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setCodPassword(String codPassword) {
-        this.codPassword = codPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
 

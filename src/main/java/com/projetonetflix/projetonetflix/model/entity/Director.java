@@ -5,7 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.GenerationType;
+import java.util.List;
 
 @Entity
 @Table(name = "DIRECTOR")
@@ -17,18 +21,24 @@ public class Director {
     private Long id;
 
     @Column(name = "NAM_DIRECTOR")
-    private String nameDirector;
+    private String name;
 
     @Column(name = "NUM_AGE_DIRECTOR")
-    private int numAgeDirector;
+    private int age;
+
+    @ManyToMany
+    @JoinTable(name = "DIRECTION", joinColumns = @JoinColumn(name = "IDT_TITLE"),
+            inverseJoinColumns = @JoinColumn(name = "IDT_DIRECTOR"))
+    private List<Title> titleList;
 
     public Director() {
     }
 
-    public Director(Long id, String namDirector, int numAgeDirector) {
+    public Director(Long id, String name, int age, List<Title> titleList) {
         this.id = id;
-        this.nameDirector = namDirector;
-        this.numAgeDirector = numAgeDirector;
+        this.name = name;
+        this.age = age;
+        this.titleList = titleList;
     }
 
     public Long getId() {
@@ -39,20 +49,27 @@ public class Director {
         this.id = id;
     }
 
-    public String getNameDirector() {
-        return nameDirector;
+    public String getName() {
+        return name;
     }
 
-    public void setNameDirector(String nameDirector) {
-        this.nameDirector = nameDirector;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getNumAgeDirector() {
-        return numAgeDirector;
+    public int getAge() {
+        return age;
     }
 
-    public void setNumAgeDirector(int numAgeDirector) {
-        this.numAgeDirector = numAgeDirector;
+    public void setAge(int age) {
+        this.age = age;
     }
 
+    public List<Title> getTitleList() {
+        return titleList;
+    }
+
+    public void setTitleList(List<Title> titleList) {
+        this.titleList = titleList;
+    }
 }

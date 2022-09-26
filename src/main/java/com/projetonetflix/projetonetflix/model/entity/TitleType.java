@@ -17,14 +17,14 @@ public class TitleType {
     private Long id;
 
     @Column(name = "NAM_TYPE")
-    private String nameType;
+    private String name;
 
     public TitleType() {
     }
 
-    public TitleType(Long id, String nameType) {
+    public TitleType(Long id, String name) {
         this.id = id;
-        this.nameType = nameType;
+        this.name = name;
     }
 
     public Long getId() {
@@ -35,11 +35,11 @@ public class TitleType {
         this.id = id;
     }
 
-    public String getNameType() {
-        return nameType;
+    public String getName() {
+        return name;
     }
 
-    public void setNameType(String nameType) {
-        this.nameType = nameType;
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -5,7 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.GenerationType;
+import java.util.List;
 
 @Entity
 @Table(name = "GENRE")
@@ -17,14 +21,20 @@ public class Genre {
     private Long id;
 
     @Column(name = "NAM_GENRE")
-    private String nameGenre;
+    private String name;
+
+    @ManyToMany
+    @JoinTable(name = "TITLE_GENRE", joinColumns = @JoinColumn(name = "IDT_TITLE"),
+            inverseJoinColumns = @JoinColumn(name = "IDT_GENRE"))
+    private List<Title> titles;
 
     public Genre() {
     }
 
-    public Genre(Long id, String namGenre) {
+    public Genre(Long id, String name, List<Title> titles) {
         this.id = id;
-        this.nameGenre = namGenre;
+        this.name = name;
+        this.titles = titles;
     }
 
     public Long getId() {
@@ -35,12 +45,20 @@ public class Genre {
         this.id = id;
     }
 
-    public String getNameGenre() {
-        return nameGenre;
+    public String getName() {
+        return name;
     }
 
-    public void setNameGenre(String nameGenre) {
-        this.nameGenre = nameGenre;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Title> getTitles() {
+        return titles;
+    }
+
+    public void setTitles(List<Title> titles) {
+        this.titles = titles;
     }
 }
 

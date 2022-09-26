@@ -6,7 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
+import javax.persistence.ManyToMany;
 import javax.persistence.GenerationType;
+import java.util.List;
 
 @Entity
 @Table(name = "ACTOR")
@@ -18,18 +20,21 @@ public class Actor {
     private Long id;
 
     @Column(name = "NAM_ACTOR")
-    private String nameActor;
+    private String name;
 
     @Column(name = "NUM_AGE_ACTOR")
-    private int numAge;
+    private int age;
 
+    @ManyToMany(mappedBy = "actors")
+    private List<Cast> casts;
     public Actor() {
     }
 
-    public Actor(Long id, String namActor, int numAge) {
+    public Actor(Long id, String name, int age, List<Cast> casts) {
         this.id = id;
-        this.nameActor = namActor;
-        this.numAge = numAge;
+        this.name = name;
+        this.age = age;
+        this.casts = casts;
     }
 
     public Long getId() {
@@ -40,19 +45,27 @@ public class Actor {
         this.id = id;
     }
 
-    public String getNameActor() {
-        return nameActor;
+    public String getName() {
+        return name;
     }
 
-    public void setNameActor(String nameActor) {
-        this.nameActor = nameActor;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getNumAge() {
-        return numAge;
+    public int getAge() {
+        return age;
     }
 
-    public void setNumAge(int numAge) {
-        this.numAge = numAge;
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public List<Cast> getCasts() {
+        return casts;
+    }
+
+    public void setCasts(List<Cast> casts) {
+        this.casts = casts;
     }
 }
