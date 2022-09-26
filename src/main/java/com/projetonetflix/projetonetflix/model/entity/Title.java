@@ -1,6 +1,10 @@
 package com.projetonetflix.projetonetflix.model.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.GenerationType;
 
 @Entity
 public class Title {
@@ -17,7 +21,7 @@ public class Title {
     private String datLaunch;
 
     @Column(name = "NAM_TITLE")
-    private String namTitle;
+    private String nameTitle;
 
     @Column(name = "VAL_DURATION")
     private String valDuration;
@@ -35,7 +39,7 @@ public class Title {
         this.id = id;
         this.desClassification = desClassification;
         this.datLaunch = datLaunch;
-        this.namTitle = namTitle;
+        this.nameTitle = namTitle;
         this.valDuration = valDuration;
         this.idtNamCast = idtNamCast;
         this.idtTitleType = idtTitleType;
@@ -65,12 +69,12 @@ public class Title {
         this.datLaunch = datLaunch;
     }
 
-    public String getNamTitle() {
-        return namTitle;
+    public String getNameTitle() {
+        return nameTitle;
     }
 
-    public void setNamTitle(String namTitle) {
-        this.namTitle = namTitle;
+    public void setNameTitle(String nameTitle) {
+        this.nameTitle = nameTitle;
     }
 
     public String getValDuration() {

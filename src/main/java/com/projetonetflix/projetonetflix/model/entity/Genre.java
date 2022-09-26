@@ -1,6 +1,11 @@
 package com.projetonetflix.projetonetflix.model.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.GenerationType;
 
 @Entity
 @Table(name = "GENRE")
@@ -12,14 +17,14 @@ public class Genre {
     private Long id;
 
     @Column(name = "NAM_GENRE")
-    private String namGenre;
+    private String nameGenre;
 
     public Genre() {
     }
 
     public Genre(Long id, String namGenre) {
         this.id = id;
-        this.namGenre = namGenre;
+        this.nameGenre = namGenre;
     }
 
     public Long getId() {
@@ -30,12 +35,12 @@ public class Genre {
         this.id = id;
     }
 
-    public String getNamGenre() {
-        return namGenre;
+    public String getNameGenre() {
+        return nameGenre;
     }
 
-    public void setNamGenre(String namGenre) {
-        this.namGenre = namGenre;
+    public void setNameGenre(String nameGenre) {
+        this.nameGenre = nameGenre;
     }
 }
 

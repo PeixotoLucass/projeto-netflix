@@ -1,6 +1,11 @@
 package com.projetonetflix.projetonetflix.model.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.GenerationType;
 
 @Entity
 @Table(name = "PERSON")
@@ -12,10 +17,10 @@ public class Person {
     private Long id;
 
     @Column(name = "NAM_PERSON")
-    private String namPerson;
+    private String namePerson;
 
     @Column(name = "NAM_LOGIN")
-    private String namLogin;
+    private String nameLogin;
 
     @Column(name = "COD_PASSWORD")
     private String codPassword;
@@ -25,8 +30,8 @@ public class Person {
 
     public Person(Long id, String namPerson, String namLogin, String codPassword) {
         this.id = id;
-        this.namPerson = namPerson;
-        this.namLogin = namLogin;
+        this.namePerson = namPerson;
+        this.nameLogin = namLogin;
         this.codPassword = codPassword;
     }
 
@@ -38,20 +43,20 @@ public class Person {
         this.id = id;
     }
 
-    public String getNamPerson() {
-        return namPerson;
+    public String getNamePerson() {
+        return namePerson;
     }
 
-    public void setNamPerson(String namPerson) {
-        this.namPerson = namPerson;
+    public void setNamePerson(String namePerson) {
+        this.namePerson = namePerson;
     }
 
-    public String getNamLogin() {
-        return namLogin;
+    public String getNameLogin() {
+        return nameLogin;
     }
 
-    public void setNamLogin(String namLogin) {
-        this.namLogin = namLogin;
+    public void setNameLogin(String nameLogin) {
+        this.nameLogin = nameLogin;
     }
 
     public String getCodPassword() {

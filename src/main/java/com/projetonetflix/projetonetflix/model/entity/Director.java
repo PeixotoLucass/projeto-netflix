@@ -1,6 +1,11 @@
 package com.projetonetflix.projetonetflix.model.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.GenerationType;
 
 @Entity
 @Table(name = "DIRECTOR")
@@ -12,7 +17,7 @@ public class Director {
     private Long id;
 
     @Column(name = "NAM_DIRECTOR")
-    private String namDirector;
+    private String nameDirector;
 
     @Column(name = "NUM_AGE_DIRECTOR")
     private int numAgeDirector;
@@ -22,7 +27,7 @@ public class Director {
 
     public Director(Long id, String namDirector, int numAgeDirector) {
         this.id = id;
-        this.namDirector = namDirector;
+        this.nameDirector = namDirector;
         this.numAgeDirector = numAgeDirector;
     }
 
@@ -34,12 +39,12 @@ public class Director {
         this.id = id;
     }
 
-    public String getNamDirector() {
-        return namDirector;
+    public String getNameDirector() {
+        return nameDirector;
     }
 
-    public void setNamDirector(String namDirector) {
-        this.namDirector = namDirector;
+    public void setNameDirector(String nameDirector) {
+        this.nameDirector = nameDirector;
     }
 
     public int getNumAgeDirector() {
