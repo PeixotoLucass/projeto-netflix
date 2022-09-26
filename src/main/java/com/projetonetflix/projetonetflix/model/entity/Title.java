@@ -9,7 +9,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.GenerationType;
-import javax.persistence.GenerationType;
 import java.util.List;
 
 @Entity
@@ -34,10 +33,10 @@ public class Title {
     private String duration;
 
     @Column(name = "IDT_NAM_CAST")
-    private Long idtNamCast;
+    private Long nameCast;
 
     @Column(name = "IDT_TITLE_TYPE")
-    private Long idtTitleType;
+    private Long titleType;
 
     @ManyToMany
     @JoinTable(name = "CAST_ACTOR", joinColumns = @JoinColumn(name = "IDT_GENRE"),
@@ -57,8 +56,8 @@ public class Title {
         this.datLaunch = datLaunch;
         this.name = name;
         this.duration = duration;
-        this.idtNamCast = idtNamCast;
-        this.idtTitleType = idtTitleType;
+        this.nameCast = idtNamCast;
+        this.titleType = idtTitleType;
         this.genres = genres;
         this.directors = directors;
     }
@@ -103,20 +102,20 @@ public class Title {
         this.duration = duration;
     }
 
-    public Long getIdtNamCast() {
-        return idtNamCast;
+    public Long getNameCast() {
+        return nameCast;
     }
 
-    public void setIdtNamCast(Long idtNamCast) {
-        this.idtNamCast = idtNamCast;
+    public void setNameCast(Long nameCast) {
+        this.nameCast = nameCast;
     }
 
-    public Long getIdtTitleType() {
-        return idtTitleType;
+    public Long getTitleType() {
+        return titleType;
     }
 
-    public void setIdtTitleType(Long idtTitleType) {
-        this.idtTitleType = idtTitleType;
+    public void setTitleType(Long titleType) {
+        this.titleType = titleType;
     }
 
     public List<Genre> getGenres() {
