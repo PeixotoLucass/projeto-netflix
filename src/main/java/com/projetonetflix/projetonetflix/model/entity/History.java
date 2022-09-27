@@ -6,7 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.GenerationType;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Entity
 @Table(name = "HISTORY")
@@ -18,7 +19,7 @@ public class History {
     private Long id;
 
     @Column(name = "DAT_HISTORY")
-    private Date datHistory;
+    private LocalDate datHistory;
 
     @Column(name = "IDT_PERSON")
     private Long idtPerson;
@@ -29,7 +30,7 @@ public class History {
     public History() {
     }
 
-    public History(Long id, Date datHistory, Long idtPerson, Long idtTitle) {
+    public History(Long id, LocalDate datHistory, Long idtPerson, Long idtTitle) {
         this.id = id;
         this.datHistory = datHistory;
         this.idtPerson = idtPerson;
@@ -44,11 +45,11 @@ public class History {
         this.id = id;
     }
 
-    public Date getDatHistory() {
+    public LocalDate getDatHistory() {
         return datHistory;
     }
 
-    public void setDatHistory(Date datHistory) {
+    public void setDatHistory(LocalDate datHistory) {
         this.datHistory = datHistory;
     }
 

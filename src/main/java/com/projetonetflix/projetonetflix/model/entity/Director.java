@@ -24,7 +24,7 @@ public class Director {
     private String name;
 
     @Column(name = "NUM_AGE_DIRECTOR")
-    private int age;
+    private Integer age;
 
     @ManyToMany
     @JoinTable(name = "DIRECTION", joinColumns = @JoinColumn(name = "IDT_TITLE"),
@@ -34,7 +34,7 @@ public class Director {
     public Director() {
     }
 
-    public Director(Long id, String name, int age, List<Title> titleList) {
+    public Director(Long id, String name, Integer age, List<Title> titleList) {
         this.id = id;
         this.name = name;
         this.age = age;

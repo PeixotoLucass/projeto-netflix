@@ -23,14 +23,14 @@ public class Actor {
     private String name;
 
     @Column(name = "NUM_AGE_ACTOR")
-    private int age;
+    private Integer age;
 
     @ManyToMany(mappedBy = "actors")
     private List<Cast> casts;
     public Actor() {
     }
 
-    public Actor(Long id, String name, int age, List<Cast> casts) {
+    public Actor(Long id, String name, Integer age, List<Cast> casts) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -57,7 +57,7 @@ public class Actor {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
