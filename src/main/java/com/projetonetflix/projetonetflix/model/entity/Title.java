@@ -8,8 +8,10 @@ import javax.persistence.Column;
 import javax.persistence.ManyToMany;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
+import javax.persistence.FetchType;
 import javax.persistence.GenerationType;
 import java.util.List;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "TITLE")
@@ -18,13 +20,13 @@ public class Title {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDT_TITLE")
-    private Long id;
+    private Integer id;
 
     @Column(name = "DES_CLASSIFICATION")
-    private String desClassification;
+    private String classification;
 
     @Column(name = "DAT_LAUNCH")
-    private String datLaunch;
+    private LocalDate dateLaunch;
 
     @Column(name = "NAM_TITLE")
     private String name;
@@ -33,57 +35,57 @@ public class Title {
     private String duration;
 
     @Column(name = "IDT_NAM_CAST")
-    private Long nameCast;
+    private Integer cast;
 
     @Column(name = "IDT_TITLE_TYPE")
-    private Long titleType;
+    private Integer type;
 
-    @ManyToMany
-    @JoinTable(name = "CAST_ACTOR", joinColumns = @JoinColumn(name = "IDT_GENRE"),
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "TITLE_GENRE", joinColumns = @JoinColumn(name = "IDT_GENRE"),
             inverseJoinColumns = @JoinColumn(name = "IDT_TITLE"))
     private List<Genre> genres;
 
-    @ManyToMany(mappedBy = "titlesList")
+    @ManyToMany(mappedBy = "titlesList",fetch = FetchType.EAGER)
     private List<Director> directors;
 
     public Title() {
     }
 
-    public Title(Long id, String desClassification, String datLaunch, String name, String duration,
-                 Long idtNamCast, Long idtTitleType, List<Genre> genres, List<Director> directors) {
+    public Title(Integer id, String classification, LocalDate dateLaunch, String name, String duration,
+                 Integer cast, Integer type, List<Genre> genres, List<Director> directors) {
         this.id = id;
-        this.desClassification = desClassification;
-        this.datLaunch = datLaunch;
+        this.classification = classification;
+        this.dateLaunch = dateLaunch;
         this.name = name;
         this.duration = duration;
-        this.nameCast = idtNamCast;
-        this.titleType = idtTitleType;
+        this.cast = cast;
+        this.type = type;
         this.genres = genres;
         this.directors = directors;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getDesClassification() {
-        return desClassification;
+    public String getClassification() {
+        return classification;
     }
 
-    public void setDesClassification(String desClassification) {
-        this.desClassification = desClassification;
+    public void setClassification(String classification) {
+        this.classification = classification;
     }
 
-    public String getDatLaunch() {
-        return datLaunch;
+    public LocalDate getDateLaunch() {
+        return dateLaunch;
     }
 
-    public void setDatLaunch(String datLaunch) {
-        this.datLaunch = datLaunch;
+    public void setDateLaunch(LocalDate dateLaunch) {
+        this.dateLaunch = dateLaunch;
     }
 
     public String getName() {
@@ -102,20 +104,20 @@ public class Title {
         this.duration = duration;
     }
 
-    public Long getNameCast() {
-        return nameCast;
+    public Integer getCast() {
+        return cast;
     }
 
-    public void setNameCast(Long nameCast) {
-        this.nameCast = nameCast;
+    public void setCast(Integer cast) {
+        this.cast = cast;
     }
 
-    public Long getTitleType() {
-        return titleType;
+    public Integer getType() {
+        return type;
     }
 
-    public void setTitleType(Long titleType) {
-        this.titleType = titleType;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public List<Genre> getGenres() {

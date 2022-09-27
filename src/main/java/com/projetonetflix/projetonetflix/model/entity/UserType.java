@@ -14,33 +14,33 @@ public class UserType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDT_USER")
-    private Long id;
+    private Integer id;
 
     @Column(name = "DES_USER_TYPE")
-    private String userType;
+    private String type;
 
     public UserType() {
     }
 
-    public UserType(Long id, String userType) {
+    public UserType(Integer id, String type) {
         this.id = id;
-        this.userType = userType;
+        this.type = type;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getUserType() {
-        return userType;
+    public String getType() {
+        return type;
     }
 
-    public void setUserType(String userType) {
-        this.userType = userType;
+    public void setType(String type) {
+        this.type = type;
     }
 }
 

@@ -14,7 +14,7 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDT_PERSON")
-    private Long id;
+    private Integer id;
 
     @Column(name = "NAM_PERSON")
     private String name;
@@ -28,18 +28,18 @@ public class Person {
     public Person() {
     }
 
-    public Person(Long id, String name, String login, String password) {
+    public Person(Integer id, String name, String login, String password) {
         this.id = id;
         this.name = name;
         this.login = login;
         this.password = password;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

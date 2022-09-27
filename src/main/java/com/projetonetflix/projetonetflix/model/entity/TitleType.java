@@ -14,7 +14,7 @@ public class TitleType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDT_TITLE_TYPE")
-    private Long id;
+    private Integer id;
 
     @Column(name = "NAM_TYPE")
     private String name;
@@ -22,16 +22,16 @@ public class TitleType {
     public TitleType() {
     }
 
-    public TitleType(Long id, String name) {
+    public TitleType(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

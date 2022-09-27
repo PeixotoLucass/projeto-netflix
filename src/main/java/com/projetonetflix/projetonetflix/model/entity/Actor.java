@@ -17,7 +17,7 @@ public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDT_ACTOR")
-    private Long id;
+    private Integer id;
 
     @Column(name = "NAM_ACTOR")
     private String name;
@@ -30,18 +30,18 @@ public class Actor {
     public Actor() {
     }
 
-    public Actor(Long id, String name, Integer age, List<Cast> casts) {
+    public Actor(Integer id, String name, Integer age, List<Cast> casts) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.casts = casts;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,7 +53,7 @@ public class Actor {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 

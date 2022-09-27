@@ -16,32 +16,32 @@ public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDT_HISTORY")
-    private Long id;
+    private Integer id;
 
     @Column(name = "DAT_HISTORY")
     private LocalDate datHistory;
 
     @Column(name = "IDT_PERSON")
-    private Long idtPerson;
+    private Integer idtPerson;
 
     @Column(name = "IDT_TITLE")
-    private Long idtTitle;
+    private Integer idtTitle;
 
     public History() {
     }
 
-    public History(Long id, LocalDate datHistory, Long idtPerson, Long idtTitle) {
+    public History(Integer id, LocalDate datHistory, Integer idtPerson, Integer idtTitle) {
         this.id = id;
         this.datHistory = datHistory;
         this.idtPerson = idtPerson;
         this.idtTitle = idtTitle;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,19 +53,19 @@ public class History {
         this.datHistory = datHistory;
     }
 
-    public Long getIdtPerson() {
+    public Integer getIdtPerson() {
         return idtPerson;
     }
 
-    public void setIdtPerson(Long idtPerson) {
+    public void setIdtPerson(Integer idtPerson) {
         this.idtPerson = idtPerson;
     }
 
-    public Long getIdtTitle() {
+    public Integer getIdtTitle() {
         return idtTitle;
     }
 
-    public void setIdtTitle(Long idtTitle) {
+    public void setIdtTitle(Integer idtTitle) {
         this.idtTitle = idtTitle;
     }
 }

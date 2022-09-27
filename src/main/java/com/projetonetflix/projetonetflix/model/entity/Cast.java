@@ -18,7 +18,7 @@ public class Cast {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDT_NAME_CAST")
-    private Long id;
+    private Integer id;
 
     @ManyToMany
     @JoinTable(name = "CAST_ACTOR", joinColumns = @JoinColumn(name = "IDT_ACTOR"),
@@ -28,16 +28,16 @@ public class Cast {
     public Cast() {
     }
 
-    public Cast(Long id, List<Actor> actors) {
+    public Cast(Integer id, List<Actor> actors) {
         this.id = id;
         this.actors = actors;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

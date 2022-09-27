@@ -1,14 +1,6 @@
 package com.projetonetflix.projetonetflix.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.ManyToMany;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -18,7 +10,7 @@ public class Director {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDT_DIRECTOR")
-    private Long id;
+    private Integer id;
 
     @Column(name = "NAM_DIRECTOR")
     private String name;
@@ -26,7 +18,7 @@ public class Director {
     @Column(name = "NUM_AGE_DIRECTOR")
     private Integer age;
 
-    @ManyToMany
+    @ManyToMany()
     @JoinTable(name = "DIRECTION", joinColumns = @JoinColumn(name = "IDT_TITLE"),
             inverseJoinColumns = @JoinColumn(name = "IDT_DIRECTOR"))
     private List<Title> titleList;
@@ -34,18 +26,18 @@ public class Director {
     public Director() {
     }
 
-    public Director(Long id, String name, Integer age, List<Title> titleList) {
+    public Director(Integer id, String name, Integer age, List<Title> titleList) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.titleList = titleList;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -57,11 +49,11 @@ public class Director {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

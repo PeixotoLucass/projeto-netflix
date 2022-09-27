@@ -18,28 +18,24 @@ public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDT_GENRE")
-    private Long id;
+    private Integer id;
 
     @Column(name = "NAM_GENRE")
     private String name;
 
-    @ManyToMany(mappedBy = "genres")
-    private List<Title> titles;
-
     public Genre() {
     }
 
-    public Genre(Long id, String name, List<Title> titles) {
+    public Genre(Integer id, String name) {
         this.id = id;
         this.name = name;
-        this.titles = titles;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -49,14 +45,6 @@ public class Genre {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Title> getTitles() {
-        return titles;
-    }
-
-    public void setTitles(List<Title> titles) {
-        this.titles = titles;
     }
 }
 
