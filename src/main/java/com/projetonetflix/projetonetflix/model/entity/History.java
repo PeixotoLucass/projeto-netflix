@@ -19,22 +19,22 @@ public class History {
     private Integer id;
 
     @Column(name = "DAT_HISTORY")
-    private LocalDate datHistory;
+    private LocalDate dataHistory;
 
     @Column(name = "IDT_PERSON")
-    private Integer idtPerson;
+    private Integer personId;
 
     @Column(name = "IDT_TITLE")
-    private Integer idtTitle;
+    private Integer titleId;
 
     public History() {
     }
 
-    public History(Integer id, LocalDate datHistory, Integer idtPerson, Integer idtTitle) {
+    public History(Integer id, LocalDate dataHistory, Integer personId, Integer titleId) {
         this.id = id;
-        this.datHistory = datHistory;
-        this.idtPerson = idtPerson;
-        this.idtTitle = idtTitle;
+        this.dataHistory = dataHistory;
+        this.personId = personId;
+        this.titleId = titleId;
     }
 
     public Integer getId() {
@@ -45,28 +45,28 @@ public class History {
         this.id = id;
     }
 
-    public LocalDate getDatHistory() {
-        return datHistory;
+    public LocalDate getDataHistory() {
+        return dataHistory;
     }
 
-    public void setDatHistory(LocalDate datHistory) {
-        this.datHistory = datHistory;
+    public void setDataHistory(LocalDate dataHistory) {
+        this.dataHistory = dataHistory;
     }
 
-    public Integer getIdtPerson() {
-        return idtPerson;
+    public Integer getPersonId() {
+        return personId;
     }
 
-    public void setIdtPerson(Integer idtPerson) {
-        this.idtPerson = idtPerson;
+    public void setPersonId(Integer personId) {
+        this.personId = personId;
     }
 
-    public Integer getIdtTitle() {
-        return idtTitle;
+    public Integer getTitleId() {
+        return titleId;
     }
 
-    public void setIdtTitle(Integer idtTitle) {
-        this.idtTitle = idtTitle;
+    public void setTitleId(Integer titleId) {
+        this.titleId = titleId;
     }
 }
 
