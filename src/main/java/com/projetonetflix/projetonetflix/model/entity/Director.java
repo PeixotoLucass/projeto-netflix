@@ -1,6 +1,14 @@
 package com.projetonetflix.projetonetflix.model.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.GenerationType;
 import java.util.List;
 
 @Entity
@@ -18,7 +26,7 @@ public class Director {
     @Column(name = "NUM_AGE_DIRECTOR")
     private Integer age;
 
-    @ManyToMany()
+    @ManyToMany
     @JoinTable(name = "DIRECTION", joinColumns = @JoinColumn(name = "IDT_TITLE"),
             inverseJoinColumns = @JoinColumn(name = "IDT_DIRECTOR"))
     private List<Title> titleList;
