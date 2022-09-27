@@ -1,7 +1,7 @@
 package com.projetonetflix.projetonetflix.model.repository;
 
 import com.projetonetflix.projetonetflix.model.entity.Director;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface DirectorRepository extends PagingAndSortingRepository<Director, Integer> {
+public interface DirectorRepository extends CrudRepository<Director, Integer> {
 }

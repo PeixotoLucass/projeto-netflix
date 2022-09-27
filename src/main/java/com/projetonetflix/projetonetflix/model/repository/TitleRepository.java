@@ -1,7 +1,7 @@
 package com.projetonetflix.projetonetflix.model.repository;
 
 import com.projetonetflix.projetonetflix.model.entity.Title;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface TitleRepository extends PagingAndSortingRepository<Title, Integer> {
+public interface TitleRepository extends CrudRepository<Title, Integer> {
 }
