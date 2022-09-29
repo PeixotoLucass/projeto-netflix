@@ -26,6 +26,12 @@ public class Director {
     public Director() {
     }
 
+    public Director(String name, Integer age, List<Title> titleList) {
+        this.name = name;
+        this.age = age;
+        this.titleList = titleList;
+    }
+
     public Director(Integer id, String name, Integer age, List<Title> titleList) {
         this.id = id;
         this.name = name;
