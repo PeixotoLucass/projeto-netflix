@@ -7,12 +7,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import java.util.List;
 
 @Entity
 @Table(name = "NAME_CAST")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "titleList", "actors"})
 public class Cast {
 
     @Id
@@ -25,6 +27,10 @@ public class Cast {
             inverseJoinColumns = @JoinColumn(name = "IDT_NAME_CAST"))
     private List<Actor> actors;
 
+    @ManyToMany
+    @JoinTable(name = "TITLE", joinColumns = @JoinColumn(name = "IDT_NAM_CAST"),
+            inverseJoinColumns = @JoinColumn(name = "IDT_CAST"))
+    private List<Title> titleList;
     public Cast() {
     }
 
@@ -47,5 +53,13 @@ public class Cast {
 
     public void setActors(List<Actor> actors) {
         this.actors = actors;
+    }
+
+    public List<Title> getTitleList() {
+        return titleList;
+    }
+
+    public void setTitleList(List<Title> titleList) {
+        this.titleList = titleList;
     }
 }

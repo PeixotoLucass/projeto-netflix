@@ -7,11 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.ManyToMany;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.GenerationType;
 import java.util.List;
 
 @Entity
 @Table(name = "ACTOR")
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "casts"})
 public class Actor {
 
     @Id
@@ -28,6 +30,11 @@ public class Actor {
     @ManyToMany(mappedBy = "actors")
     private List<Cast> casts;
     public Actor() {
+    }
+
+    public Actor(String name, Integer age) {
+        this.name = name;
+        this.age = age;
     }
 
     public Actor(Integer id, String name, Integer age, List<Cast> casts) {
