@@ -1,6 +1,5 @@
 package com.projetonetflix.projetonetflix.dto;
 
-
 import com.projetonetflix.projetonetflix.model.entity.Director;
 import com.projetonetflix.projetonetflix.model.entity.Title;
 
