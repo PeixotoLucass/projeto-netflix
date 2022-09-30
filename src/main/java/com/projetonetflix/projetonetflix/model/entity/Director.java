@@ -1,7 +1,12 @@
 package com.projetonetflix.projetonetflix.model.entity;
 
+import com.projetonetflix.projetonetflix.dto.TitleDTO;
+import com.projetonetflix.projetonetflix.model.repository.TitleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "DIRECTOR")
@@ -70,4 +75,5 @@ public class Director {
     public void setTitleList(List<Title> titleList) {
         this.titleList = titleList;
     }
+
 }

@@ -1,6 +1,8 @@
 package com.projetonetflix.projetonetflix.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.projetonetflix.projetonetflix.dto.TitleDTO;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

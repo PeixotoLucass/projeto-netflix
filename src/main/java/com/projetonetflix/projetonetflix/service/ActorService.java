@@ -19,4 +19,8 @@ public class ActorService {
     public List<Actor> findByName(String name){
         return actorRepository.findByName(name);
     }
+
+    public List<Actor> findByNameIgnoreCase(String name) {
+        return actorRepository.findByNameIgnoreCase(name);
+    }
 }
