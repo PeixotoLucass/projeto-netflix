@@ -9,6 +9,8 @@ import com.projetonetflix.projetonetflix.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,6 +28,13 @@ public class GenreController {
     public List<GenreDTO> getGenres(){
         List<Genre> listGenre = genreService.findAll();
         List<GenreDTO> listDTO = listGenre.stream().map(obj -> new GenreDTO(obj)).collect(Collectors.toList());
+        return listDTO;
+    }
+
+    @GetMapping(path = "{name}")
+    public List<GenreDTO> getByNameContaining(@PathVariable String name) {
+        List<Genre> listDirector = genreService.findByNameIgnoreCase(name);
+        List<GenreDTO> listDTO = listDirector.stream().map(obj -> new GenreDTO(obj)).collect(Collectors.toList());
         return listDTO;
     }
 
