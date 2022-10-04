@@ -18,7 +18,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "TITLE")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "genres", "directors"})//Se colocar isso ele não traz genres e nem directors
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "genres", "directors", "casts"})//Se colocar isso ele não traz genres e nem directors
 //se não usar o JsonIgnoreProperties ele traz só o id de genre e director.
 public class Title {
 
@@ -60,8 +60,8 @@ public class Title {
     public Title() {
     }
 
-    public Title(Integer id, String classification, LocalDate dateLaunch, String name, String duration,
-                 Integer cast, Integer type, List<Genre> genres, List<Director> directors) {
+    public Title(Integer id, String classification, LocalDate dateLaunch, String name, String duration, Integer cast,
+                 Integer type, List<Cast> casts, List<Director> directors, List<Genre> genres) {
         this.id = id;
         this.classification = classification;
         this.dateLaunch = dateLaunch;
@@ -69,8 +69,9 @@ public class Title {
         this.duration = duration;
         this.cast = cast;
         this.type = type;
-        this.genres = genres;
+        this.casts = casts;
         this.directors = directors;
+        this.genres = genres;
     }
 
     public Integer getId() {
@@ -145,4 +146,11 @@ public class Title {
         this.directors = directors;
     }
 
+    public List<Cast> getCasts() {
+        return casts;
+    }
+
+    public void setCasts(List<Cast> casts) {
+        this.casts = casts;
+    }
 }

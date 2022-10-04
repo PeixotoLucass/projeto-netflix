@@ -1,12 +1,22 @@
 package com.projetonetflix.projetonetflix.dto;
 
 import com.projetonetflix.projetonetflix.model.entity.Actor;
+import com.projetonetflix.projetonetflix.model.entity.Title;
+
+
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ActorDTO {
 
     private String name;
 
     private Integer age;
+
+    private List<Title> titleList;
 
     public ActorDTO() {
     }

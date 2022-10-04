@@ -1,6 +1,7 @@
 package com.projetonetflix.projetonetflix.dto;
 
 
+import com.projetonetflix.projetonetflix.model.entity.Cast;
 import com.projetonetflix.projetonetflix.model.entity.Director;
 import com.projetonetflix.projetonetflix.model.entity.Title;
 
@@ -19,7 +20,7 @@ public class TitleDTO {
 
     private List<Director> directorList;
 
-   // private List<Cast> castList;
+    private List<Cast> castList;
 
     public TitleDTO() {
     }
@@ -30,6 +31,7 @@ public class TitleDTO {
         this.name = title.getName();
         this.duration = title.getDuration();
         this.directorList = title.getDirectors();
+        this.castList = title.getCasts();
 
     }
 
