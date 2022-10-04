@@ -1,7 +1,10 @@
 package com.projetonetflix.projetonetflix.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import com.projetonetflix.projetonetflix.dto.TitleDTO;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +21,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "TITLE")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "genres", "directors", "casts"})//Se colocar isso ele não traz genres e nem directors
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "genres", "directors", "casts"})//Se colocar isso ele não traz genres e nem directors
 //se não usar o JsonIgnoreProperties ele traz só o id de genre e director.
 public class Title {
 
@@ -47,16 +50,21 @@ public class Title {
 
 
     @ManyToMany
-    @JoinTable(name = "CAST_ACTOR", joinColumns = @JoinColumn(name = "IDT_NAM_CAST"),
+    @JoinTable(name = "CAST_ACTOR", joinColumns = @JoinColumn(name = "IDT_NAME_CAST"),
             inverseJoinColumns = @JoinColumn(name = "IDT_ACTOR"))
     private List<Cast> casts;
 
-    @ManyToMany(mappedBy = "titleList",fetch = FetchType.LAZY)
+
+    @ManyToMany(mappedBy = "titleList")
     private List<Director> directors;
 
-    @ManyToMany(mappedBy = "titleGenre",fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "titleGenre")
     private List<Genre> genres;
 
+    @ManyToMany
+    @JoinTable(name = "TITLE_TYPE", joinColumns = @JoinColumn(name = "IDT_TITLE_TYPE"),
+            inverseJoinColumns = @JoinColumn(name = "IDT_TITLE"))
+    private List<TitleType> titleTypes;
     public Title() {
     }
 
@@ -152,5 +160,13 @@ public class Title {
 
     public void setCasts(List<Cast> casts) {
         this.casts = casts;
+    }
+
+    public List<TitleType> getTitleTypes() {
+        return titleTypes;
+    }
+
+    public void setTitleTypes(List<TitleType> titleTypes) {
+        this.titleTypes = titleTypes;
     }
 }

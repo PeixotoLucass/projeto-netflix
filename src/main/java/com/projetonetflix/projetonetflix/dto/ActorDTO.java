@@ -16,7 +16,7 @@ public class ActorDTO {
 
     private Integer age;
 
-    private List<Title> titleList;
+    private List<TitleDTO> titleList;
 
     public ActorDTO() {
     }

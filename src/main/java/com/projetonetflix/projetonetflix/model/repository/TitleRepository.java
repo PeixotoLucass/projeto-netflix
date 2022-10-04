@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface TitleRepository extends CrudRepository<Title, Integer> {
     public List<Title> findByName(String name);
+
+    public List<Title> findByNameIgnoreCase(String name);
 }

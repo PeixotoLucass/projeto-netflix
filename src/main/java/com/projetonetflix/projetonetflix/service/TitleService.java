@@ -20,4 +20,8 @@ public class TitleService {
         return titleRepository.findByName(name);
     }
 
+    public List<Title> findByNameIgnoreCase(String name) {
+        return titleRepository.findByNameIgnoreCase(name);
+    }
+
 }

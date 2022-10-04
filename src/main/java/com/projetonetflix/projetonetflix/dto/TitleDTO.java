@@ -1,9 +1,11 @@
 package com.projetonetflix.projetonetflix.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projetonetflix.projetonetflix.model.entity.Cast;
 import com.projetonetflix.projetonetflix.model.entity.Director;
 import com.projetonetflix.projetonetflix.model.entity.Title;
+import com.projetonetflix.projetonetflix.model.entity.TitleType;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -18,6 +20,9 @@ public class TitleDTO {
 
     private String duration;
 
+    private List<TitleType> titleTypes;
+
+    @JsonIgnore
     private List<Director> directorList;
 
     private List<Cast> castList;
@@ -32,6 +37,7 @@ public class TitleDTO {
         this.duration = title.getDuration();
         this.directorList = title.getDirectors();
         this.castList = title.getCasts();
+        this.titleTypes = title.getTitleTypes();
 
     }
 

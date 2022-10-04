@@ -32,7 +32,7 @@ public class TitleController {
 
     @GetMapping(path = "/{name}")
     public List<TitleDTO> getByName(@PathVariable String name){
-        List<Title> listTitle = titleService.findByName(name);
+        List<Title> listTitle = titleService.findByNameIgnoreCase(name);
         List<TitleDTO> listDTO = listTitle.stream().map(obj -> new TitleDTO(obj)).collect(Collectors.toList());
         return listDTO;
     }
