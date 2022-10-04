@@ -25,7 +25,7 @@ public class History {
     private Integer personId;
 
     @Column(name = "IDT_TITLE")
-    private Integer titleid;
+
 
     public History() {
     }
@@ -34,7 +34,7 @@ public class History {
         this.id = id;
         this.dataHistory = dataHistory;
         this.personId = personId;
-        this.titleid = titleId;
+
     }
 
     public Integer getId() {
@@ -61,13 +61,8 @@ public class History {
         this.personId = personId;
     }
 
-    public Integer getTitleid() {
-        return titleid;
-    }
 
-    public void setTitleid(Integer titleid) {
-        this.titleid = titleid;
-    }
+    
 }
 
 

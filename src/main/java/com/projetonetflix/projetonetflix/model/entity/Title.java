@@ -40,13 +40,6 @@ public class Title {
     @Column(name = "IDT_TITLE_TYPE")
     private Integer type;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "TITLE_GENRE", joinColumns = @JoinColumn(name = "IDT_GENRE"),
-            inverseJoinColumns = @JoinColumn(name = "IDT_TITLE"))
-    private List<Genre> genres;
-
-    @ManyToMany(mappedBy = "titlesList",fetch = FetchType.EAGER)
-    private List<Director> directors;
 
     public Title() {
     }
@@ -135,4 +128,5 @@ public class Title {
     public void setDirectors(List<Director> directors) {
         this.directors = directors;
     }
+
 }

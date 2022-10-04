@@ -7,12 +7,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
+
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import java.util.List;
 
 @Entity
 @Table(name = "NAME_CAST")
+
 public class Cast {
 
     @Id
@@ -24,6 +26,12 @@ public class Cast {
     @JoinTable(name = "CAST_ACTOR", joinColumns = @JoinColumn(name = "IDT_ACTOR"),
             inverseJoinColumns = @JoinColumn(name = "IDT_NAME_CAST"))
     private List<Actor> actors;
+
+
+    @ManyToMany
+    @JoinTable(name = "TITLE", joinColumns = @JoinColumn(name = "IDT_NAM_CAST"),
+            inverseJoinColumns = @JoinColumn(name = "IDT_CAST"))
+    private List<Title> titleList;
 
     public Cast() {
     }
@@ -48,4 +56,5 @@ public class Cast {
     public void setActors(List<Actor> actors) {
         this.actors = actors;
     }
+
 }
