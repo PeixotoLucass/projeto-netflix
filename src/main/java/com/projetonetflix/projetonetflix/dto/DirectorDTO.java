@@ -1,12 +1,10 @@
 package com.projetonetflix.projetonetflix.dto;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projetonetflix.projetonetflix.model.entity.Director;
 import com.projetonetflix.projetonetflix.model.entity.Title;
 import java.util.List;
 import java.util.stream.Collectors;
-
 
 public class DirectorDTO {
 
@@ -44,7 +42,6 @@ public class DirectorDTO {
     public void setAge(int age) {
         this.age = age;
     }
-
 
     public List<TitleDTO> getTitleList() {
         return titleList;

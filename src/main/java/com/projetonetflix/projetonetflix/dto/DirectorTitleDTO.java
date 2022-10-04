@@ -1,31 +1,32 @@
 package com.projetonetflix.projetonetflix.dto;
 
-import com.projetonetflix.projetonetflix.model.entity.Actor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.projetonetflix.projetonetflix.model.entity.Director;
 import com.projetonetflix.projetonetflix.model.entity.Title;
 
-
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ActorDTO {
+public class DirectorTitleDTO {
 
     private String name;
+    private int age;
 
-    private Integer age;
-
+    @JsonIgnore
     private List<TitleDTO> titleList;
 
-    public ActorDTO() {
+    public DirectorTitleDTO() {
     }
 
-    public ActorDTO(Actor actor) {
-        this.name = actor.getName();
-        this.age = actor.getAge();
-        this.titleList = actor.getCasts().stream().map(cast -> cast.getTitleList()).flatMap(titles -> titles.stream()).
-                map(title -> new TitleDTO(title)).collect(Collectors.toList());
+    public DirectorTitleDTO(Director director) {
+
+        List<Title> listTitle = (List<Title>) director.getTitleList();
+        List<TitleDTO> listDTO = listTitle.stream().map(obj -> new TitleDTO(obj)).collect(Collectors.toList());
+
+        this.name = director.getName();
+        this.age = director.getAge();
+        this.titleList = listDTO;
+
     }
 
     public String getName() {
@@ -40,7 +41,7 @@ public class ActorDTO {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -51,4 +52,5 @@ public class ActorDTO {
     public void setTitleList(List<TitleDTO> titleList) {
         this.titleList = titleList;
     }
+
 }

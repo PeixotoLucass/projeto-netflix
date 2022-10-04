@@ -32,7 +32,7 @@ public class GenreController {
     }
 
     @GetMapping(path = "{name}")
-    public List<GenreDTO> getByNameContaining(@PathVariable String name) {
+    public List<GenreDTO> getByNameIgnoreCase(@PathVariable String name) {
         List<Genre> listDirector = genreService.findByNameIgnoreCase(name);
         List<GenreDTO> listDTO = listDirector.stream().map(obj -> new GenreDTO(obj)).collect(Collectors.toList());
         return listDTO;
