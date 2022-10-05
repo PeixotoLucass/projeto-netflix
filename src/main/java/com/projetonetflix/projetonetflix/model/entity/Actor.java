@@ -29,6 +29,8 @@ public class Actor {
 
     @ManyToMany(mappedBy = "actors")
     private List<Cast> casts;
+
+
     public Actor() {
     }
 
@@ -75,4 +77,5 @@ public class Actor {
     public void setCasts(List<Cast> casts) {
         this.casts = casts;
     }
+
 }

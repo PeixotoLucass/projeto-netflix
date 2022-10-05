@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface GenreRepository extends CrudRepository<Genre, Integer> {
 
+  public List<Genre> findByNameIgnoreCase(String name);
 
-    public List<Genre> findByNameIgnoreCase(String name);
-
+  public List<Genre> findByNameContainingIgnoreCase(String name);
 
 }

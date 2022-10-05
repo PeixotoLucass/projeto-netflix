@@ -1,34 +1,43 @@
 package com.projetonetflix.projetonetflix.dto;
 
 import com.projetonetflix.projetonetflix.model.entity.Actor;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ActorDTO {
 
-    private String name;
+  private final String name;
 
-    private Integer age;
+  private final Integer age;
 
-    public ActorDTO() {
-    }
+  private final List<TitleDTO> titleList;
 
-    public ActorDTO(Actor actor) {
-        this.name = actor.getName();
-        this.age = actor.getAge();
-    }
+  public ActorDTO(Integer age, List<TitleDTO> titleList, String name) {
+    this.name = name;
+    this.age = age;
+    this.titleList = titleList;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public ActorDTO(Actor actor) {
+    this.name = actor.getName();
+    this.age = actor.getAge();
+    this.titleList = actor.getCasts().stream()
+        .map(cast -> cast.getTitleList())
+        .flatMap(titles -> titles.stream())
+        .map(title -> new TitleDTO(title))
+        .collect(Collectors.toList());
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public int getAge() {
-        return age;
-    }
+  public int getAge() {
+    return age;
+  }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+  public List<TitleDTO> getTitleList() {
+    return titleList;
+  }
+
 }

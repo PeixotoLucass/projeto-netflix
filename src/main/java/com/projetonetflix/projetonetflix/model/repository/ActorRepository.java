@@ -5,9 +5,12 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface ActorRepository extends CrudRepository<Actor, Integer>{
-    public List<Actor> findByName(String name);
+public interface ActorRepository extends CrudRepository<Actor, Integer> {
 
-    public List<Actor> findByNameIgnoreCase(String name);
+  public List<Actor> findByName(String name);
+
+  public List<Actor> findByNameIgnoreCase(String name);
+
+  public List<Actor> findByNameContainingIgnoreCase(String name);
 
 }

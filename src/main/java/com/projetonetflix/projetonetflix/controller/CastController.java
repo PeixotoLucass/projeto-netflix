@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/netflix/cast")
 public class CastController {
 
-    @Autowired
-    CastRepository castRepository;
+  @Autowired
+  CastRepository castRepository;
 
-    @GetMapping
-    public Iterable<Cast> getCast(){
-        return castRepository.findAll();
-    }
+  @GetMapping
+  public Iterable<Cast> getCast() {
+    return castRepository.findAll();
+  }
 }

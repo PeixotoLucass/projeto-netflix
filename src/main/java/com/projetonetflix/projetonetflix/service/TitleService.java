@@ -10,14 +10,19 @@ import java.util.List;
 @Service
 public class TitleService {
 
-    @Autowired
-    private TitleRepository titleRepository;
+  @Autowired
+  private TitleRepository titleRepository;
 
-    public List<Title> findAll() {
-        return (List<Title>) titleRepository.findAll();
-    }
-    public List<Title> findByName(String name){
-        return titleRepository.findByName(name);
-    }
+  public List<Title> findAll() {
+    return (List<Title>) titleRepository.findAll();
+  }
+
+  public List<Title> findByName(String name) {
+    return titleRepository.findByName(name);
+  }
+
+  public List<Title> findByNameContainingIgnoreCase(String name) {
+    return titleRepository.findByNameContainingIgnoreCase(name);
+  }
 
 }
