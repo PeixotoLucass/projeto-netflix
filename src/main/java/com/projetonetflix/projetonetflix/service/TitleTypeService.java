@@ -10,10 +10,10 @@ import java.util.List;
 @Service
 public class TitleTypeService {
 
-    @Autowired
-    TitleTypeRepository titleTypeRepository;
+  @Autowired
+  TitleTypeRepository titleTypeRepository;
 
-    public List<TitleType> findAll(){
-        return (List<TitleType>) titleTypeRepository.findAll();
-    }
+  public List<TitleType> findAll() {
+    return (List<TitleType>) titleTypeRepository.findAll();
+  }
 }

@@ -15,13 +15,15 @@ import java.util.stream.Collectors;
 @RequestMapping("/netflix/titleType")
 public class TitleTypeController {
 
-    @Autowired
-    TitleTypeService titleTypeService;
+  @Autowired
+  TitleTypeService titleTypeService;
 
-    @GetMapping
-    public List<TitleTypeDTO> findAll(){
-        List<TitleType> listActor = titleTypeService.findAll();
-        List<TitleTypeDTO> listDTO = listActor.stream().map(obj -> new TitleTypeDTO(obj)).collect(Collectors.toList());
-        return listDTO;
-    }
+  @GetMapping
+  public List<TitleTypeDTO> findAll() {
+    List<TitleType> listActor = titleTypeService.findAll();
+    List<TitleTypeDTO> listDTO = listActor.stream()
+        .map(titleType -> new TitleTypeDTO(titleType))
+        .collect(Collectors.toList());
+    return listDTO;
+  }
 }

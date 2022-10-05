@@ -4,20 +4,14 @@ import com.projetonetflix.projetonetflix.model.entity.TitleType;
 
 public class TitleTypeDTO {
 
-    private String name;
+  private final String name;
 
-    public TitleTypeDTO() {
-    }
+  public TitleTypeDTO(TitleType type) {
+    this.name = type.getName();
+  }
 
-    public TitleTypeDTO(TitleType titleType) {
-        this.name = titleType.getName();
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

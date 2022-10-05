@@ -1,11 +1,7 @@
 package com.projetonetflix.projetonetflix.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "TITLE_TYPE")
@@ -42,4 +38,5 @@ public class TitleType {
     public void setName(String name) {
         this.name = name;
     }
+
 }

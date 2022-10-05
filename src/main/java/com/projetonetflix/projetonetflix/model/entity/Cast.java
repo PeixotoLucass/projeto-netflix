@@ -31,6 +31,9 @@ public class Cast {
         this.actors = actors;
     }
 
+    public Cast(Actor actor) {
+    }
+
     public Integer getId() {
         return id;
     }
