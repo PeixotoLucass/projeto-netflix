@@ -21,11 +21,7 @@ public class DirectorService {
     return directorRepository.findByName(name);
   }
 
-  public List<Director> findByNameIgnoreCase(String name) {
-    return directorRepository.findByNameIgnoreCase(name);
-  }
-
-  public List<Director> findByNameContains(String name) {
+  public List<Director> findByNameContainingIgnoreCase(String name) {
     return directorRepository.findByNameContainingIgnoreCase(name);
   }
 

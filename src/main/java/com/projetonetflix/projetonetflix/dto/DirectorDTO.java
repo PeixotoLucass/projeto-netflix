@@ -10,7 +10,7 @@ public class DirectorDTO {
   private final String name;
   private final int age;
 
-  private List<TitleDTO> titleList;
+  private List<TitleNameDTO> titleList;
 
   public DirectorDTO(String name, int age) {
     this.name = name;
@@ -19,12 +19,12 @@ public class DirectorDTO {
 
   public DirectorDTO(Director director) {
 
-    List<Title> listTitle = (List<Title>) director.getTitleList();
+    List<Title> listTitle =  director.getTitleList();
 
     this.name = director.getName();
     this.age = director.getAge();
     this.titleList = listTitle.stream()
-        .map(obj -> new TitleDTO(obj))
+        .map(title -> new TitleNameDTO(title))
         .collect(Collectors.toList());
 
   }
@@ -37,11 +37,11 @@ public class DirectorDTO {
     return age;
   }
 
-  public List<TitleDTO> getTitleList() {
+  public List<TitleNameDTO> getTitleList() {
     return titleList;
   }
 
-  public void setTitleList(List<TitleDTO> titleList) {
+  public void setTitleList(List<TitleNameDTO> titleList) {
     this.titleList = titleList;
   }
 }
