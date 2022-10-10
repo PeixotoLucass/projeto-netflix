@@ -38,7 +38,7 @@ public class FindAllController {
   GenreService genreService;
 
   @GetMapping()
-  public AllDTO getByALL(@RequestParam(required = false) String titles,
+  public AllDTO getByParam(@RequestParam(required = false) String titles,
       @RequestParam(required = false) String actors,
       @RequestParam(required = false) String directors) {
 
@@ -61,4 +61,27 @@ public class FindAllController {
     all = new AllDTO(listTitle, listDirector, listActor);
     return all;
   }
+
+  @GetMapping(path = "{name}")
+  public AllDTO getByAll(@PathVariable String name) {
+    List<Title> titleList = titleService.findByNameContainingIgnoreCase(name);
+    List<TitleDTO> listTitle = titleList.stream()
+        .map(title -> new TitleDTO(title))
+        .collect(Collectors.toList());
+
+    List<Director> directorList = directorService.findByNameContainingIgnoreCase(name);
+    List<DirectorDTO> listDirector = directorList.stream()
+        .map(director -> new DirectorDTO(director))
+        .collect(Collectors.toList());
+
+    List<Actor> actorList = actorService.findByNameContainingIgnoreCase(name);
+    List<ActorDTO> listActor = actorList.stream()
+        .map(actor -> new ActorDTO(actor))
+        .collect(Collectors.toList());
+
+    AllDTO all;
+    all = new AllDTO(listTitle, listDirector, listActor);
+    return all;
+  }
+
 }
