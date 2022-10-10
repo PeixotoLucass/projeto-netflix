@@ -1,6 +1,6 @@
 package com.projetonetflix.projetonetflix.controller;
 
-import com.projetonetflix.projetonetflix.dto.TitleDirectorDTO;
+import com.projetonetflix.projetonetflix.dto.TitleDTO;
 import com.projetonetflix.projetonetflix.model.entity.Title;
 import com.projetonetflix.projetonetflix.service.TitleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +19,19 @@ public class TitleController {
   private TitleService titleService;
 
   @GetMapping
-  public List<TitleDirectorDTO> findAll() {
+  public List<TitleDTO> findAll() {
     List<Title> listTitle = titleService.findAll();
-    List<TitleDirectorDTO> listDTO = listTitle.stream()
-        .map(title -> new TitleDirectorDTO(title))
+    List<TitleDTO> listDTO = listTitle.stream()
+        .map(title -> new TitleDTO(title))
         .collect(Collectors.toList());
     return listDTO;
   }
 
   @GetMapping(path = "/{name}")
-  public List<TitleDirectorDTO> getByNameContainingIgnoreCase(@PathVariable String name) {
+  public List<TitleDTO> getByNameContainingIgnoreCase(@PathVariable String name) {
     List<Title> listTitle = titleService.findByNameContainingIgnoreCase(name);
-    List<TitleDirectorDTO> listDTO = listTitle.stream()
-        .map(title -> new TitleDirectorDTO(title))
+    List<TitleDTO> listDTO = listTitle.stream()
+        .map(title -> new TitleDTO(title))
         .collect(Collectors.toList());
     return listDTO;
   }

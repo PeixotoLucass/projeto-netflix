@@ -10,9 +10,9 @@ public class ActorDTO {
 
   private final Integer age;
 
-  private final List<TitleDTO> titleList;
+  private final List<TitleNameDTO> titleList;
 
-  public ActorDTO(Integer age, List<TitleDTO> titleList, String name) {
+  public ActorDTO(Integer age, List<TitleNameDTO> titleList, String name) {
     this.name = name;
     this.age = age;
     this.titleList = titleList;
@@ -24,7 +24,7 @@ public class ActorDTO {
     this.titleList = actor.getCasts().stream()
         .map(cast -> cast.getTitleList())
         .flatMap(titles -> titles.stream())
-        .map(title -> new TitleDTO(title))
+        .map(title -> new TitleNameDTO(title))
         .collect(Collectors.toList());
   }
 
@@ -36,7 +36,7 @@ public class ActorDTO {
     return age;
   }
 
-  public List<TitleDTO> getTitleList() {
+  public List<TitleNameDTO> getTitleList() {
     return titleList;
   }
 

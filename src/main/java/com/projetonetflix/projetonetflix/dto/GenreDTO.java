@@ -9,9 +9,9 @@ public class GenreDTO {
 
   private final String name;
 
-  private final List<TitleDTO> titles;
+  private final List<TitleNameDTO> titles;
 
-  public GenreDTO(String name, List<TitleDTO> titles) {
+  public GenreDTO(String name, List<TitleNameDTO> titles) {
     this.name = name;
     this.titles = titles;
   }
@@ -21,7 +21,7 @@ public class GenreDTO {
 
     this.name = genre.getName();
     this.titles = listTitle.stream()
-        .map(obj -> new TitleDTO(obj))
+        .map(obj -> new TitleNameDTO(obj))
         .collect(Collectors.toList());
   }
 
@@ -29,7 +29,7 @@ public class GenreDTO {
     return name;
   }
 
-  public List<TitleDTO> getTitles() {
+  public List<TitleNameDTO> getTitles() {
     return titles;
   }
 
