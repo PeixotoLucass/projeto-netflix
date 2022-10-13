@@ -34,7 +34,7 @@ class ActorServiceTest {
   }
 
   @Test
-  void whenFindAllReturnListActorInstance() {
+  void ShouldReturnAllActorInDatabaseWhenUseFindAll() {
 
     Mockito.when(actorRepository.findAll()).thenReturn(ActorHelper.getListOfActors());
     List<Actor> actorList = actorService.findAll();
@@ -49,7 +49,7 @@ class ActorServiceTest {
   }
 
   @Test
-  void whenFindByNameIgnoreCaseReturnListActor() {
+  void ShouldReturnActorInDatabaseWhenUseFindByNameIgnoreCase() {
 
     Mockito.when(actorRepository.findByNameIgnoreCase(Mockito.anyString()))
         .thenReturn(ActorHelper.getListOfActors());
@@ -65,7 +65,7 @@ class ActorServiceTest {
   }
 
   @Test
-  void whenFindByNameContainingIgnoreCaseReturnListActor() {
+  void ShouldReturnActorInDatabaseWhenUseFindByNameContainingIgnoreCase() {
 
     Mockito.when(actorRepository.findByNameContainingIgnoreCase(Mockito.anyString()))
         .thenReturn(ActorHelper.getListOfActors());

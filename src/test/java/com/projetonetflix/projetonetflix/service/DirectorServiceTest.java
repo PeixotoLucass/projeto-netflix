@@ -31,7 +31,7 @@ class DirectorServiceTest {
   }
 
   @Test
-  void findAllReturnDirectorInstance() {
+  void ShouldReturnAllDirectorInDatabaseWhenUseFindAll() {
 
     Mockito.when(directorRepository.findAll()).thenReturn(DirectorHelper.getListOfDirector());
     List<Director> directorList = directorService.findAll();
@@ -46,7 +46,7 @@ class DirectorServiceTest {
   }
 
   @Test
-  void findByNameContainingIgnoreCaseReturnDirector() {
+  void ShouldReturnDirectorInDatabaseWhenUseFindByNameContainingIgnoreCase() {
 
     Mockito.when(directorRepository.findByNameContainingIgnoreCase(Mockito.anyString()))
         .thenReturn(DirectorHelper.getListOfDirector());

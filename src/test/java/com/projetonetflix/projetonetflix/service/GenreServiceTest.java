@@ -31,7 +31,7 @@ class GenreServiceTest {
   }
 
   @Test
-  void findAllReturnGenreInstance() {
+  void ShouldReturnAllGenreInDatabaseWhenUseFindAll() {
 
     Mockito.when(genreRepository.findAll()).thenReturn(GenreHelper.getListOfGenre());
     List<Genre> genreList = genreService.findAll();
@@ -43,7 +43,7 @@ class GenreServiceTest {
   }
 
   @Test
-  void findByNameContainingIgnoreCaseReturnGenre() {
+  void ShouldReturnGenreInDatabaseWhenUseFindByNameContainingIgnoreCase() {
 
     Mockito.when(genreRepository.findByNameContainingIgnoreCase(Mockito.anyString()))
         .thenReturn(GenreHelper.getListOfGenre());
