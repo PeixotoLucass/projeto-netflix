@@ -1,7 +1,6 @@
 package com.projetonetflix.projetonetflix.service;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import com.projetonetflix.projetonetflix.helper.ActorHelper;
 import com.projetonetflix.projetonetflix.model.entity.Actor;
 import com.projetonetflix.projetonetflix.model.repository.ActorRepository;
 import java.util.ArrayList;
@@ -9,13 +8,17 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class ActorServiceTest {
+
+  public static final String NAME = "Lucas";
 
   @InjectMocks
   private ActorService actorService;
@@ -23,43 +26,60 @@ class ActorServiceTest {
   @Mock
   private ActorRepository actorRepository;
 
-  private Actor actor;
-
-  private List<Actor> actors;
+  private List<Actor> actors = new ArrayList<>();
 
   @BeforeEach
   void setUp() {
     MockitoAnnotations.openMocks(this);
-    startActor();
   }
 
   @Test
-  void whenFindAllReturnActorInstance() {
-    actors = (List<Actor>) this.actorService.findAll();
+  void whenFindAllReturnListActorInstance() {
 
-    Assertions.assertNotNull(actors);
+    Mockito.when(actorRepository.findAll()).thenReturn(ActorHelper.getListOfActors());
+    List<Actor> actorList = actorService.findAll();
+
+    Assertions.assertNotNull(actorList);
+
+    Assertions.assertEquals(actorList.get(0).getName(),
+        ActorHelper.getListOfActors().get(0).getName());
+
+    Assertions.assertEquals(actorList.get(0).getAge(),
+        ActorHelper.getListOfActors().get(0).getAge());
   }
 
   @Test
-  void findByNameIgnoreCase() {
-    String name = "Lucas";
-    actors = this.actorService.findByNameIgnoreCase(name);
+  void whenFindByNameIgnoreCaseReturnListActor() {
 
-    Assertions.assertNotNull(actors);
+    Mockito.when(actorRepository.findByNameIgnoreCase(Mockito.anyString()))
+        .thenReturn(ActorHelper.getListOfActors());
+    List<Actor> actorList = this.actorService.findByNameIgnoreCase(NAME);
+
+    Assertions.assertNotNull(actorList);
+
+    Assertions.assertEquals(actorList.get(0).getName(),
+        ActorHelper.getListOfActors().get(0).getName());
+
+    Assertions.assertEquals(actorList.get(0).getAge(),
+        ActorHelper.getListOfActors().get(0).getAge());
   }
 
   @Test
-  void findByNameContainingIgnoreCase() {
-    String name = "Lucas";
-    actors = this.actorService.findByNameContainingIgnoreCase(name);
+  void whenFindByNameContainingIgnoreCaseReturnListActor() {
 
-    Assertions.assertNotNull(actors);
+    Mockito.when(actorRepository.findByNameContainingIgnoreCase(Mockito.anyString()))
+        .thenReturn(ActorHelper.getListOfActors());
+    List<Actor> actorList = this.actorService.findByNameContainingIgnoreCase(NAME);
+
+    Assertions.assertNotNull(actorList);
+
+    Assertions.assertEquals(actorList.get(0).getName(),
+        ActorHelper.getListOfActors().get(0).getName());
+
+    Assertions.assertEquals(actorList.get(0).getAge(),
+        ActorHelper.getListOfActors().get(0).getAge());
   }
 
-  private List<Actor> startActor(){
-    actor = new Actor("Lucas",25);
-    List<Actor> actors = new ArrayList<>();
-    actors.add(actor);
-    return actors;
-  }
 }
+
+
