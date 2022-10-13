@@ -36,48 +36,54 @@ class ActorServiceTest {
   @Test
   void ShouldReturnAllActorInDatabaseWhenUseFindAll() {
 
-    Mockito.when(actorRepository.findAll()).thenReturn(ActorHelper.getListOfActors());
+    List<Actor> actors = ActorHelper.getListOfActors();
+
+    Mockito.when(actorRepository.findAll()).thenReturn(actors);
     List<Actor> actorList = actorService.findAll();
 
     Assertions.assertNotNull(actorList);
 
     Assertions.assertEquals(actorList.get(0).getName(),
-        ActorHelper.getListOfActors().get(0).getName());
+        actors.get(0).getName());
 
     Assertions.assertEquals(actorList.get(0).getAge(),
-        ActorHelper.getListOfActors().get(0).getAge());
+        actors.get(0).getAge());
   }
 
   @Test
   void ShouldReturnActorInDatabaseWhenUseFindByNameIgnoreCase() {
 
+    List<Actor> actors = ActorHelper.getListOfActors();
+
     Mockito.when(actorRepository.findByNameIgnoreCase(Mockito.anyString()))
-        .thenReturn(ActorHelper.getListOfActors());
-    List<Actor> actorList = this.actorService.findByNameIgnoreCase(NAME);
+        .thenReturn(actors);
+    List<Actor> actorList = actorService.findByNameIgnoreCase(NAME);
 
     Assertions.assertNotNull(actorList);
 
     Assertions.assertEquals(actorList.get(0).getName(),
-        ActorHelper.getListOfActors().get(0).getName());
+        actors.get(0).getName());
 
     Assertions.assertEquals(actorList.get(0).getAge(),
-        ActorHelper.getListOfActors().get(0).getAge());
+        actors.get(0).getAge());
   }
 
   @Test
   void ShouldReturnActorInDatabaseWhenUseFindByNameContainingIgnoreCase() {
 
+    List<Actor> actors = ActorHelper.getListOfActors();
+
     Mockito.when(actorRepository.findByNameContainingIgnoreCase(Mockito.anyString()))
-        .thenReturn(ActorHelper.getListOfActors());
-    List<Actor> actorList = this.actorService.findByNameContainingIgnoreCase(NAME);
+        .thenReturn(actors);
+    List<Actor> actorList = actorService.findByNameContainingIgnoreCase(NAME);
 
     Assertions.assertNotNull(actorList);
 
     Assertions.assertEquals(actorList.get(0).getName(),
-        ActorHelper.getListOfActors().get(0).getName());
+        actors.get(0).getName());
 
     Assertions.assertEquals(actorList.get(0).getAge(),
-        ActorHelper.getListOfActors().get(0).getAge());
+        actors.get(0).getAge());
   }
 
 }

@@ -33,32 +33,36 @@ class DirectorServiceTest {
   @Test
   void ShouldReturnAllDirectorInDatabaseWhenUseFindAll() {
 
-    Mockito.when(directorRepository.findAll()).thenReturn(DirectorHelper.getListOfDirector());
+    List<Director> directors = DirectorHelper.getListOfDirector();
+
+    Mockito.when(directorRepository.findAll()).thenReturn(directors);
     List<Director> directorList = directorService.findAll();
 
     Assertions.assertNotNull(directorList);
 
     Assertions.assertEquals(directorList.get(0).getName(),
-        DirectorHelper.getListOfDirector().get(0).getName());
+        directors.get(0).getName());
 
     Assertions.assertEquals(directorList.get(0).getAge(),
-        DirectorHelper.getListOfDirector().get(0).getAge());
+        directors.get(0).getAge());
   }
 
   @Test
   void ShouldReturnDirectorInDatabaseWhenUseFindByNameContainingIgnoreCase() {
 
+    List<Director> directors = DirectorHelper.getListOfDirector();
+
     Mockito.when(directorRepository.findByNameContainingIgnoreCase(Mockito.anyString()))
-        .thenReturn(DirectorHelper.getListOfDirector());
+        .thenReturn(directors);
     List<Director> directorList = directorService.findByNameContainingIgnoreCase(NAME);
 
     Assertions.assertNotNull(directorList);
 
     Assertions.assertEquals(directorList.get(0).getName(),
-        DirectorHelper.getListOfDirector().get(0).getName());
+        directors.get(0).getName());
 
     Assertions.assertEquals(directorList.get(0).getAge(),
-        DirectorHelper.getListOfDirector().get(0).getAge());
+        directors.get(0).getAge());
   }
 
 }

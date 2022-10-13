@@ -33,26 +33,30 @@ class GenreServiceTest {
   @Test
   void ShouldReturnAllGenreInDatabaseWhenUseFindAll() {
 
-    Mockito.when(genreRepository.findAll()).thenReturn(GenreHelper.getListOfGenre());
+    List<Genre> genres = GenreHelper.getListOfGenre();
+
+    Mockito.when(genreRepository.findAll()).thenReturn(genres);
     List<Genre> genreList = genreService.findAll();
 
     Assertions.assertNotNull(genreList);
 
     Assertions.assertEquals(genreList.get(0).getName(),
-        GenreHelper.getListOfGenre().get(0).getName());
+        genres.get(0).getName());
   }
 
   @Test
   void ShouldReturnGenreInDatabaseWhenUseFindByNameContainingIgnoreCase() {
 
+    List<Genre> genres = GenreHelper.getListOfGenre();
+
     Mockito.when(genreRepository.findByNameContainingIgnoreCase(Mockito.anyString()))
-        .thenReturn(GenreHelper.getListOfGenre());
+        .thenReturn(genres);
     List<Genre> genreList = genreService.findByNameContainingIgnoreCase(NAME);
 
     Assertions.assertNotNull(genreList);
 
     Assertions.assertEquals(genreList.get(0).getName(),
-        GenreHelper.getListOfGenre().get(0).getName());
+        genres.get(0).getName());
   }
 
 }
