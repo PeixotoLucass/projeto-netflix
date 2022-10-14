@@ -1,10 +1,11 @@
 package com.projetonetflix.projetonetflix.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import com.projetonetflix.projetonetflix.helper.GenreHelper;
 import com.projetonetflix.projetonetflix.model.entity.Genre;
 import com.projetonetflix.projetonetflix.model.repository.GenreRepository;
 import java.util.List;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -38,9 +39,9 @@ class GenreServiceTest {
     Mockito.when(genreRepository.findAll()).thenReturn(genres);
     List<Genre> genreList = genreService.findAll();
 
-    Assertions.assertNotNull(genreList);
+    assertNotNull(genreList);
 
-    Assertions.assertEquals(genreList.get(0).getName(),
+    assertEquals(genreList.get(0).getName(),
         genres.get(0).getName());
   }
 
@@ -53,9 +54,9 @@ class GenreServiceTest {
         .thenReturn(genres);
     List<Genre> genreList = genreService.findByNameContainingIgnoreCase(NAME);
 
-    Assertions.assertNotNull(genreList);
+    assertNotNull(genreList);
 
-    Assertions.assertEquals(genreList.get(0).getName(),
+    assertEquals(genreList.get(0).getName(),
         genres.get(0).getName());
   }
 

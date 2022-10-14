@@ -1,10 +1,12 @@
 package com.projetonetflix.projetonetflix.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import com.projetonetflix.projetonetflix.helper.TitleHelper;
 import com.projetonetflix.projetonetflix.model.entity.Title;
 import com.projetonetflix.projetonetflix.model.repository.TitleRepository;
 import java.util.List;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -33,41 +35,41 @@ class TitleServiceTest {
   @Test
   void ShouldReturnAllTitleInDatabaseWhenUseFindAll() {
 
-    List <Title > titles = TitleHelper.getListOfTitle();
+    List<Title> titles = TitleHelper.getListOfTitle();
 
     Mockito.when(titleRepository.findAll()).thenReturn(titles);
     List<Title> titleListFromService = titleService.findAll();
 
-    Assertions.assertNotNull(titleListFromService);
+    assertNotNull(titleListFromService);
 
-    Assertions.assertEquals(titleListFromService.get(0).getName(),
+    assertEquals(titleListFromService.get(0).getName(),
         titles.get(0).getName());
-    Assertions.assertEquals(titleListFromService.get(0).getClassification(),
+    assertEquals(titleListFromService.get(0).getClassification(),
         titles.get(0).getClassification());
-    Assertions.assertEquals(titleListFromService.get(0).getDateLaunch(),
+    assertEquals(titleListFromService.get(0).getDateLaunch(),
         titles.get(0).getDateLaunch());
-    Assertions.assertEquals(titleListFromService.get(0).getDuration(),
+    assertEquals(titleListFromService.get(0).getDuration(),
         titles.get(0).getDuration());
   }
 
   @Test
   void ShouldReturnTitleInDatabaseWhenUseFindByNameContainingIgnoreCase() {
 
-    List <Title > titles = TitleHelper.getListOfTitle();
+    List<Title> titles = TitleHelper.getListOfTitle();
 
     Mockito.when(titleRepository.findByNameContainingIgnoreCase(Mockito.anyString()))
         .thenReturn(titles);
     List<Title> titleListFromService = titleService.findByNameContainingIgnoreCase(NAME);
 
-    Assertions.assertNotNull(titleListFromService);
+    assertNotNull(titleListFromService);
 
-    Assertions.assertEquals(titleListFromService.get(0).getName(),
+    assertEquals(titleListFromService.get(0).getName(),
         titles.get(0).getName());
-    Assertions.assertEquals(titleListFromService.get(0).getClassification(),
+    assertEquals(titleListFromService.get(0).getClassification(),
         titles.get(0).getClassification());
-    Assertions.assertEquals(titleListFromService.get(0).getDateLaunch(),
+    assertEquals(titleListFromService.get(0).getDateLaunch(),
         titles.get(0).getDateLaunch());
-    Assertions.assertEquals(titleListFromService.get(0).getDuration(),
+    assertEquals(titleListFromService.get(0).getDuration(),
         titles.get(0).getDuration());
   }
 

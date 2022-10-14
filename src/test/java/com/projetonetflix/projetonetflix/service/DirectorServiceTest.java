@@ -1,10 +1,11 @@
 package com.projetonetflix.projetonetflix.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import com.projetonetflix.projetonetflix.helper.DirectorHelper;
 import com.projetonetflix.projetonetflix.model.entity.Director;
 import com.projetonetflix.projetonetflix.model.repository.DirectorRepository;
 import java.util.List;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -38,12 +39,12 @@ class DirectorServiceTest {
     Mockito.when(directorRepository.findAll()).thenReturn(directors);
     List<Director> directorList = directorService.findAll();
 
-    Assertions.assertNotNull(directorList);
+    assertNotNull(directorList);
 
-    Assertions.assertEquals(directorList.get(0).getName(),
+    assertEquals(directorList.get(0).getName(),
         directors.get(0).getName());
 
-    Assertions.assertEquals(directorList.get(0).getAge(),
+    assertEquals(directorList.get(0).getAge(),
         directors.get(0).getAge());
   }
 
@@ -56,12 +57,12 @@ class DirectorServiceTest {
         .thenReturn(directors);
     List<Director> directorList = directorService.findByNameContainingIgnoreCase(NAME);
 
-    Assertions.assertNotNull(directorList);
+    assertNotNull(directorList);
 
-    Assertions.assertEquals(directorList.get(0).getName(),
+    assertEquals(directorList.get(0).getName(),
         directors.get(0).getName());
 
-    Assertions.assertEquals(directorList.get(0).getAge(),
+    assertEquals(directorList.get(0).getAge(),
         directors.get(0).getAge());
   }
 

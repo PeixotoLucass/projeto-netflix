@@ -1,11 +1,12 @@
 package com.projetonetflix.projetonetflix.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import com.projetonetflix.projetonetflix.helper.ActorHelper;
 import com.projetonetflix.projetonetflix.model.entity.Actor;
 import com.projetonetflix.projetonetflix.model.repository.ActorRepository;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -41,12 +42,12 @@ class ActorServiceTest {
     Mockito.when(actorRepository.findAll()).thenReturn(actors);
     List<Actor> actorList = actorService.findAll();
 
-    Assertions.assertNotNull(actorList);
+    assertNotNull(actorList);
 
-    Assertions.assertEquals(actorList.get(0).getName(),
+    assertEquals(actorList.get(0).getName(),
         actors.get(0).getName());
 
-    Assertions.assertEquals(actorList.get(0).getAge(),
+    assertEquals(actorList.get(0).getAge(),
         actors.get(0).getAge());
   }
 
@@ -59,12 +60,12 @@ class ActorServiceTest {
         .thenReturn(actors);
     List<Actor> actorList = actorService.findByNameIgnoreCase(NAME);
 
-    Assertions.assertNotNull(actorList);
+    assertNotNull(actorList);
 
-    Assertions.assertEquals(actorList.get(0).getName(),
+    assertEquals(actorList.get(0).getName(),
         actors.get(0).getName());
 
-    Assertions.assertEquals(actorList.get(0).getAge(),
+    assertEquals(actorList.get(0).getAge(),
         actors.get(0).getAge());
   }
 
@@ -77,12 +78,12 @@ class ActorServiceTest {
         .thenReturn(actors);
     List<Actor> actorList = actorService.findByNameContainingIgnoreCase(NAME);
 
-    Assertions.assertNotNull(actorList);
+    assertNotNull(actorList);
 
-    Assertions.assertEquals(actorList.get(0).getName(),
+    assertEquals(actorList.get(0).getName(),
         actors.get(0).getName());
 
-    Assertions.assertEquals(actorList.get(0).getAge(),
+    assertEquals(actorList.get(0).getAge(),
         actors.get(0).getAge());
   }
 
