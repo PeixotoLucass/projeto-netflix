@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ProjetoNetflixApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void main() {
+		ProjetoNetflixApplication.main(new String[] {});
 	}
 
 }

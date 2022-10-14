@@ -1,15 +1,14 @@
 package com.projetonetflix.projetonetflix.model.entity;
 
 
+import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.ManyToMany;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.GenerationType;
-import java.util.List;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "ACTOR")
@@ -35,6 +34,7 @@ public class Actor {
     }
 
     public Actor(String name, Integer age) {
+        this.id = id;
         this.name = name;
         this.age = age;
     }

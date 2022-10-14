@@ -23,6 +23,10 @@ public class Genre {
     public Genre() {
     }
 
+    public Genre(String name) {
+        this.name = name;
+    }
+
     public Genre(Integer id, String name, List<Title> titleGenre) {
         this.id = id;
         this.name = name;

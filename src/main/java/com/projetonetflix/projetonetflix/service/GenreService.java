@@ -17,10 +17,6 @@ public class GenreService {
     return (List<Genre>) genreRepository.findAll();
   }
 
-  public List<Genre> findByNameIgnoreCase(String name) {
-    return genreRepository.findByNameIgnoreCase(name);
-  }
-
   public List<Genre> findByNameContainingIgnoreCase(String name) {
     return genreRepository.findByNameContainingIgnoreCase(name);
   }

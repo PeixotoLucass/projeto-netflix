@@ -62,6 +62,13 @@ public class Title {
     public Title() {
     }
 
+    public Title(String name, String classification, LocalDate dateLaunch, String duration) {
+        this.classification = classification;
+        this.dateLaunch = dateLaunch;
+        this.name = name;
+        this.duration = duration;
+    }
+
     public Title(Integer id, String classification, LocalDate dateLaunch, String name, String duration, Integer cast,
                  Integer type, List<Cast> casts, List<Director> directors, List<Genre> genres) {
         this.id = id;
