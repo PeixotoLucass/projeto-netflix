@@ -13,4 +13,9 @@ public class DirectorHelper {
     return directors;
   }
 
+  public static List<Director> getListEmptyOfDirector() {
+    List<Director> directors = new ArrayList<>();
+    return directors;
+  }
+
 }

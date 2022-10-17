@@ -13,4 +13,9 @@ public class GenreHelper {
     return genres;
   }
 
+  public static List<Genre> getListEmptyOfGenre() {
+    List<Genre> genres = new ArrayList<>();
+    return genres;
+  }
+
 }

@@ -116,4 +116,51 @@ class FindAllControllerTest {
         actors.get(0).getAge());
 
   }
+
+  @Test
+  void ShouldReturnEmptyListInDatabaseWhenUseGetByAll() {
+
+    List<Title> titles = TitleHelper.getListEmptyOfTitle();
+    List<Director> directors = DirectorHelper.getListEmptyOfDirector();
+    List<Actor> actors = ActorHelper.getListEmptyOfActor();
+
+    Mockito.when(titleService.findByNameContainingIgnoreCase(TITLE))
+        .thenReturn(titles);
+    Mockito.when(directorService.findByNameContainingIgnoreCase(DIRECTOR))
+        .thenReturn(directors);
+    Mockito.when(actorService.findByNameContainingIgnoreCase(ACTOR))
+        .thenReturn(actors);
+
+    AllDTO allDTO = findAllController.getByParam(TITLE, ACTOR, DIRECTOR);
+
+    assertNotNull(allDTO);
+    assertEquals(allDTO.getTitles().isEmpty(), titles.isEmpty());
+    assertEquals(allDTO.getDirectors().isEmpty(), directors.isEmpty());
+    assertEquals(allDTO.getActors().isEmpty(), actors.isEmpty());
+
+  }
+
+  @Test
+  void ShouldReturnEmptyListInDatabaseWhenUseGetByParam() {
+
+    List<Title> titles = TitleHelper.getListEmptyOfTitle();
+    List<Director> directors = DirectorHelper.getListEmptyOfDirector();
+    List<Actor> actors = ActorHelper.getListEmptyOfActor();
+
+    Mockito.when(titleService.findByNameContainingIgnoreCase(ALL))
+        .thenReturn(titles);
+    Mockito.when(directorService.findByNameContainingIgnoreCase(ALL))
+        .thenReturn(directors);
+    Mockito.when(actorService.findByNameContainingIgnoreCase(ALL))
+        .thenReturn(actors);
+
+    AllDTO allDTO = findAllController.getByAll(ALL);
+
+    assertNotNull(allDTO);
+    assertEquals(allDTO.getTitles().isEmpty(), titles.isEmpty());
+    assertEquals(allDTO.getDirectors().isEmpty(), directors.isEmpty());
+    assertEquals(allDTO.getActors().isEmpty(), actors.isEmpty());
+
+  }
+
 }

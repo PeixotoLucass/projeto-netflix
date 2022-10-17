@@ -69,4 +69,35 @@ class TitleControllerTest {
         titles.get(0).getDuration());
 
   }
+
+  @Test
+  void ShouldReturnEmptyListInDatabaseWhenUseFindAll() {
+
+    List<Title> titles = TitleHelper.getListEmptyOfTitle();
+
+    Mockito.when(titleService.findAll())
+        .thenReturn(titles);
+
+    List<TitleDTO> titleDTOS = titleController.findAll();
+
+    assertNotNull(titleDTOS);
+    assertEquals(titleDTOS.isEmpty(), titles.isEmpty());
+
+  }
+
+  @Test
+  void ShouldReturnEmptyListInDatabaseWhenUseGetByNameContainingIgnoreCase() {
+
+    List<Title> titles = TitleHelper.getListEmptyOfTitle();
+
+    Mockito.when(titleService.findByNameContainingIgnoreCase(NAME))
+        .thenReturn(titles);
+
+    List<TitleDTO> titleDTOS = titleController.getByNameContainingIgnoreCase(NAME);
+
+    assertNotNull(titleDTOS);
+    assertEquals(titleDTOS.isEmpty(), titles.isEmpty());
+
+  }
+
 }

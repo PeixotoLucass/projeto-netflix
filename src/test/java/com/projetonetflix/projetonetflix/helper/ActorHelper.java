@@ -20,4 +20,8 @@ public class ActorHelper {
     return actors;
   }
 
+  public static List<Actor> getListEmptyOfActor() {
+    List<Actor> actors = new ArrayList<>();
+    return actors;
+  }
 }

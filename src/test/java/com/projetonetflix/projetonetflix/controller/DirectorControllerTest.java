@@ -50,6 +50,7 @@ class DirectorControllerTest {
 
     assertEquals(directorDTOS.get(0).getAge(),
         directors.get(0).getAge());
+
   }
 
   @Test
@@ -68,5 +69,37 @@ class DirectorControllerTest {
 
     assertEquals(directorDTOS.get(0).getAge(),
         directors.get(0).getAge());
+
   }
+
+  @Test
+  void ShouldReturnEmptyListInDatabaseWhenUseFindAll() {
+
+    List<Director> directors = DirectorHelper.getListEmptyOfDirector();
+
+    Mockito.when(directorService.findAll())
+        .thenReturn(directors);
+
+    List<DirectorDTO> directorDTOS = directorController.getDirectors();
+
+    assertNotNull(directorDTOS);
+    assertEquals(directorDTOS.isEmpty(), directors.isEmpty());
+
+  }
+
+  @Test
+  void ShouldReturnEmptyListInDatabaseWhenUseGetByNameContains() {
+
+    List<Director> directors = DirectorHelper.getListEmptyOfDirector();
+
+    Mockito.when(directorService.findByNameContainingIgnoreCase(NAME))
+        .thenReturn(directors);
+
+    List<DirectorDTO> directorDTOS = directorController.getByNameContains(NAME);
+
+    assertNotNull(directorDTOS);
+    assertEquals(directorDTOS.isEmpty(), directors.isEmpty());
+
+  }
+
 }

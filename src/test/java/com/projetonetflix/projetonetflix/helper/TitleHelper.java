@@ -16,4 +16,9 @@ public class TitleHelper {
     return titleList;
   }
 
+  public static List<Title> getListEmptyOfTitle() {
+    List<Title> titles = new ArrayList<>();
+    return titles;
+  }
+
 }

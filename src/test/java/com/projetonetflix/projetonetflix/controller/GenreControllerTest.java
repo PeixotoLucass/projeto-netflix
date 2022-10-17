@@ -66,4 +66,35 @@ class GenreControllerTest {
         genres.get(0).getName());
 
   }
+
+  @Test
+  void ShouldReturnEmptyListInDatabaseWhenUseFindAll() {
+
+    List<Genre> genres = GenreHelper.getListEmptyOfGenre();
+
+    Mockito.when(genreService.findAll())
+        .thenReturn(genres);
+
+    List<GenreDTO> genreDTOS = genreController.getGenres();
+
+    assertNotNull(genreDTOS);
+    assertEquals(genreDTOS.isEmpty(), genres.isEmpty());
+
+  }
+
+  @Test
+  void ShouldReturnEmptyListInDatabaseWhenUseGetByNameContainingIgnoreCase() {
+
+    List<Genre> genres = GenreHelper.getListEmptyOfGenre();
+
+    Mockito.when(genreService.findByNameContainingIgnoreCase(NAME))
+        .thenReturn(genres);
+
+    List<GenreDTO> genreDTOS = genreController.getByNameContainingIgnoreCase(NAME);
+
+    assertNotNull(genreDTOS);
+    assertEquals(genreDTOS.isEmpty(), genres.isEmpty());
+
+  }
+
 }

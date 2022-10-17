@@ -72,4 +72,35 @@ class ActorControllerTest {
         actors.get(0).getAge());
 
   }
+
+  @Test
+  void ShouldReturnEmptyListInDatabaseWhenUseFindAll() {
+
+    List<Actor> actors = ActorHelper.getListEmptyOfActor();
+
+    Mockito.when(actorService.findAll())
+        .thenReturn(actors);
+
+    List<ActorDTO> actorDTOS = actorController.findAll();
+
+    assertNotNull(actorDTOS);
+    assertEquals(actorDTOS.isEmpty(), actors.isEmpty());
+
+  }
+
+  @Test
+  void ShouldReturnEmptyListInDatabaseWhenUseGetByNameContainingIgnoreCase() {
+
+    List<Actor> actors = ActorHelper.getListEmptyOfActor();
+
+    Mockito.when(actorService.findByNameContainingIgnoreCase(NAME))
+        .thenReturn(actors);
+
+    List<ActorDTO> actorDTOS = actorController.getByNameContainingIgnoreCase(NAME);
+
+    assertNotNull(actorDTOS);
+    assertEquals(actorDTOS.isEmpty(), actors.isEmpty());
+
+  }
+
 }
