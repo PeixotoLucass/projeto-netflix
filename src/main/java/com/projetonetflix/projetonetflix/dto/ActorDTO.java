@@ -18,6 +18,18 @@ public class ActorDTO {
     this.titleList = titleList;
   }
 
+  public ActorDTO(Actor actor, List<TitleNameDTO> titleList) {
+    this.name = actor.getName();
+    this.age = actor.getAge();
+    this.titleList = titleList;
+  }
+
+  public ActorDTO(String name, Integer age, List<TitleNameDTO> titleList) {
+    this.name = name;
+    this.age = age;
+    this.titleList = titleList;
+  }
+
   public ActorDTO(Actor actor) {
     this.name = actor.getName();
     this.age = actor.getAge();
