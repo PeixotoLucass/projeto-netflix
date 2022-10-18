@@ -2,10 +2,10 @@ package com.projetonetflix.projetonetflix.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import com.projetonetflix.projetonetflix.helper.ActorHelper;
 import com.projetonetflix.projetonetflix.model.entity.Actor;
 import com.projetonetflix.projetonetflix.model.repository.ActorRepository;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,8 +26,6 @@ class ActorServiceTest {
 
   @Mock
   private ActorRepository actorRepository;
-
-  private List<Actor> actors = new ArrayList<>();
 
   @BeforeEach
   void setUp() {

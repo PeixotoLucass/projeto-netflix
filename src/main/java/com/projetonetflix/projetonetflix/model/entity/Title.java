@@ -59,14 +59,16 @@ public class Title {
     @JoinTable(name = "TITLE_TYPE", joinColumns = @JoinColumn(name = "IDT_TITLE_TYPE"),
             inverseJoinColumns = @JoinColumn(name = "IDT_TITLE"))
     private List<TitleType> titleTypes;
+
     public Title() {
     }
 
-    public Title(String name, String classification, LocalDate dateLaunch, String duration) {
+    public Title(String name, String classification, LocalDate dateLaunch, String duration, List<Genre> genres) {
         this.classification = classification;
         this.dateLaunch = dateLaunch;
         this.name = name;
         this.duration = duration;
+        this.genres = genres;
     }
 
     public Title(Integer id, String classification, LocalDate dateLaunch, String name, String duration, Integer cast,

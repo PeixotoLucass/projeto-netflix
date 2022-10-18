@@ -29,14 +29,7 @@ public class Actor {
     @ManyToMany(mappedBy = "actors")
     private List<Cast> casts;
 
-
     public Actor() {
-    }
-
-    public Actor(String name, Integer age) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
     }
 
     public Actor(Integer id, String name, Integer age, List<Cast> casts) {

@@ -7,10 +7,21 @@ import java.util.List;
 public class ActorHelper {
 
   public static List<Actor> getListOfActors() {
-    Actor actor = new Actor("Lucas", 25);
+    Actor actor = new Actor(null, "Lucas", 25, new ArrayList<>());
     List<Actor> actors = new ArrayList<>();
     actors.add(actor);
     return actors;
   }
 
+  public static List<Actor> getListOfActors2() {
+    Actor actor = new Actor(null, "Mandu", 33, new ArrayList<>());
+    List<Actor> actors = new ArrayList<>();
+    actors.add(actor);
+    return actors;
+  }
+
+  public static List<Actor> getListEmptyOfActor() {
+    List<Actor> actors = new ArrayList<>();
+    return actors;
+  }
 }
