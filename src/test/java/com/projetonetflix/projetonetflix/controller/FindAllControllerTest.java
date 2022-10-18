@@ -2,6 +2,7 @@ package com.projetonetflix.projetonetflix.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.projetonetflix.projetonetflix.dto.AllDTO;
 import com.projetonetflix.projetonetflix.helper.ActorHelper;
@@ -157,9 +158,9 @@ class FindAllControllerTest {
     AllDTO allDTO = findAllController.getByAll(ALL);
 
     assertNotNull(allDTO);
-    assertEquals(allDTO.getTitles().isEmpty(), titles.isEmpty());
-    assertEquals(allDTO.getDirectors().isEmpty(), directors.isEmpty());
-    assertEquals(allDTO.getActors().isEmpty(), actors.isEmpty());
+    assertTrue(allDTO.getTitles().isEmpty());
+    assertTrue(allDTO.getDirectors().isEmpty());
+    assertTrue(allDTO.getActors().isEmpty());
 
   }
 

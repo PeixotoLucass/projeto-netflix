@@ -2,6 +2,7 @@ package com.projetonetflix.projetonetflix.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.projetonetflix.projetonetflix.dto.GenreDTO;
 import com.projetonetflix.projetonetflix.helper.GenreHelper;
@@ -78,7 +79,7 @@ class GenreControllerTest {
     List<GenreDTO> genreDTOS = genreController.getGenres();
 
     assertNotNull(genreDTOS);
-    assertEquals(genreDTOS.isEmpty(), genres.isEmpty());
+    assertTrue(genreDTOS.isEmpty());
 
   }
 
@@ -93,7 +94,7 @@ class GenreControllerTest {
     List<GenreDTO> genreDTOS = genreController.getByNameContainingIgnoreCase(NAME);
 
     assertNotNull(genreDTOS);
-    assertEquals(genreDTOS.isEmpty(), genres.isEmpty());
+    assertTrue(genreDTOS.isEmpty());
 
   }
 

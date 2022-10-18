@@ -3,6 +3,7 @@ package com.projetonetflix.projetonetflix.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.projetonetflix.projetonetflix.dto.ActorDTO;
 import com.projetonetflix.projetonetflix.helper.ActorHelper;
@@ -84,7 +85,7 @@ class ActorControllerTest {
     List<ActorDTO> actorDTOS = actorController.findAll();
 
     assertNotNull(actorDTOS);
-    assertEquals(actorDTOS.isEmpty(), actors.isEmpty());
+    assertTrue(actorDTOS.isEmpty());
 
   }
 
@@ -99,7 +100,7 @@ class ActorControllerTest {
     List<ActorDTO> actorDTOS = actorController.getByNameContainingIgnoreCase(NAME);
 
     assertNotNull(actorDTOS);
-    assertEquals(actorDTOS.isEmpty(), actors.isEmpty());
+    assertTrue(actorDTOS.isEmpty());
 
   }
 
